@@ -1,0 +1,5 @@
+# ignores while pushing
+
+dist
+node_modules
+package-lock.json
