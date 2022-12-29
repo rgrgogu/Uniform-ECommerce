@@ -8,4 +8,3 @@ menu.addEventListener("click", () => {
     sidebarMenu.classList.toggle("sm:hidden")
     bodyScroll.classList.toggle("sm:overflow-y-hidden")
 });
-

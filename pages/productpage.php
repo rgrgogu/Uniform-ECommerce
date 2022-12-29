@@ -11,7 +11,7 @@
 </head>
 <body>
     <header id="navbar-container">
-        <nav class="border-b-2 border-white-500 lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
+        <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
                 <a href="../">
                     <img src="../src/assets/plm-logo--with-header.png" alt="">
@@ -28,14 +28,14 @@
                 </div>
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
-                <div id="register" class="lg:mr-6">
-                    <a href="">
-                        <button>Register</button>
+                <div id="login" class="lg:mr-6">
+                    <a href="../login.html">
+                        <button>Login</button>
                     </a>
                 </div>
-                <div id="login" class="lg:mr-6">
-                    <a href="">
-                        <button>Log In</button>
+                <div id="register" class="lg:mr-6">
+                    <a href="../register.html">
+                        <button>Register</button>
                     </a>
                 </div>
                 <div id="cart" class="">
@@ -62,39 +62,39 @@
                 </div>
             </div>
             <div id="register" class="sm:mb-2">
-                <a href="">
+                <a href="../register.html">
                     <button>Register</button>
                 </a>
             </div>
             <div id="login" class="">
-                <a href="">
+                <a href="../login.html">
                     <button>Log In</button>
                 </a>
             </div>
         </aside>
         <aside id="sidebar-menu" class="bg-blue-600 p-4 text-white sm:hidden lg:block">
             <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
-                <div id="register" class="hover:text-purple-900">
+                <div id="page1" class="hover:text-purple-900">
                     <a href="../">
                         <button>Home</button>
                     </a>
                 </div>
-                <div id="login" class="hover:text-purple-900">
+                <div id="page2" class="hover:text-purple-900">
                     <a href="">
                         <button>Order Online</button>
                     </a>
                 </div>
-                <div id="login" class="hover:text-purple-900">
+                <div id="page3" class="hover:text-purple-900">
                     <a href="">
                         <button>Contact Us</button>
                     </a>
                 </div>
-                <div id="login" class="hover:text-purple-900">
+                <div id="page4" class="hover:text-purple-900">
                     <a href="">
                         <button>FAQs</button>
                     </a>
                 </div>
-                <div id="login" class="hover:text-purple-900">
+                <div id="page5" class="hover:text-purple-900">
                     <a href="">
                         <button>About Us</button>
                     </a>
@@ -128,16 +128,19 @@
                         <h2 class="font-bold mb-4 text-2xl">Sizes</h2>
                         <select id="cars" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
                             <option value="" selected>-required-</option>
-                            <option value="extra-small">XS</option>
-                            <option value="small">S</o  ption>
-                            <option value="medium">M</option>
-                            <option value="large">L</option>
-                            <option value="extra-large">XL</option>
+                            <option value="Extra-Small">XS</option>
+                            <option value="Small">S</o  ption>
+                            <option value="Medium">M</option>
+                            <option value="Large">L</option>
+                            <option value="Extra-Large">XL</option>
                         </select>
+                        <div class="mb-2">
+                            <b class="mr-2">Available Stocks(Small):</b>25
+                        </div>
                     </div>
                     <div id="product-price">
                         <h2 class="font-bold text-3xl mb-4">P500</h2>
-                        <button class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4">Add to Cart</button>
+                        <button class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600">Add to Cart</button>
                     </div>
                 </div>
             </aside>
@@ -145,25 +148,57 @@
                 <div id="product-header" class="sm:text-2xl lg:text-4xl font-bold sm:mb-4 lg:mb-8">
                     <h2>You may also like</h2>  
                 </div>
-                <div class="lg:container lg:mx-auto grid lg:grid-cols-4 sm:grid-cols-1 gap-6 md:grid-cols-2">
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 sm:gap-4 md:gap-6 lg:grid-cols-4 lg:container lg:mx-auto flex-wrap">
                     <div id="products">
-                        <div id="uniform" class="mb-4">
+                        <div id="uniform" class="sm:mb-2 md:mb-4">
                             <a id="link-include-please">
                                 <img src="../src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
                             </a>
                         </div>
-                        <div id="productItems" class="flex items-start justify-between">
-                            <div class="w-40 truncate">
-                                <h2 class="font-bold text-2xl">Uniform</h2>
-                                <p class="mb-2 mt-2">paragraph is paragraph</p>
+                        <div id="productItems" class="flex items-start sm:flex-col md:justify-between">
+                            <div class="w-32 truncate">
+                                <h2 class="font-bold sm:text-xl md:text-2xl">Uniform</h2>
+                                <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
                             </div>
                             <div id="cart">
-                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3">Add to Cart</button>
+                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600">Add to Cart</button>
                             </div>
                         </div>
                     </div>
+                    <div id="products">
+                        <div id="uniform" class="sm:mb-2 md:mb-4">
+                            <a id="link-include-please">
+                                <img src="../src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
+                            </a>
+                        </div>
+                        <div id="productItems" class="flex items-start sm:flex-col md:justify-between">
+                            <div class="w-32 truncate">
+                                <h2 class="font-bold sm:text-xl md:text-2xl">Uniform</h2>
+                                <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
+                            </div>
+                            <div id="cart">
+                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="products">
+                        <div id="uniform" class="sm:mb-2 md:mb-4">
+                            <a id="link-include-please">
+                                <img src="../src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
+                            </a>
+                        </div>
+                        <div id="productItems" class="flex items-start sm:flex-col md:justify-between">
+                            <div class="w-32 truncate">
+                                <h2 class="font-bold sm:text-xl md:text-2xl">Uniform</h2>
+                                <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
+                            </div>
+                            <div id="cart">
+                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- stored as array -->
                 </div>
-                <!-- dynamic content -->
             </aside>
         </main>
     </section>

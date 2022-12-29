@@ -11,7 +11,7 @@
 </head>
 <body>
     <header id="navbar-container">
-        <nav class="border-b-2 border-white-500 lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
+        <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
                 <a href="./">
                     <img src="./src/assets/plm-logo--with-header.png" alt="">
@@ -28,14 +28,14 @@
                 </div>
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
-                <div id="register" class="lg:mr-6">
-                    <a href="">
-                        <button>Register</button>
+                <div id="login" class="lg:mr-6 hover:text-blue-600">
+                    <a href="./login.html">
+                        <button>Login</button>
                     </a>
                 </div>
-                <div id="login" class="lg:mr-6">
-                    <a href="">
-                        <button>Log In</button>
+                <div id="register" class="lg:mr-6 hover:text-blue-600">
+                    <a href="./register.html">
+                        <button>Register</button>
                     </a>
                 </div>
                 <div id="cart" class="">
@@ -61,14 +61,14 @@
                   </button>
                 </div>
             </div>
-            <div id="register" class="sm:mb-2">
-                <a href="">
-                    <button>Register</button>
+            <div id="register" class="sm:mb-2 hover:text-blue-700">
+                <a href="./login.html">
+                    <button>Login</button>
                 </a>
             </div>
-            <div id="login" class="">
-                <a href="">
-                    <button>Log In</button>
+            <div id="login" class="hover:text-blue-700">
+                <a href="./register.html">
+                    <button>Register</button>
                 </a>
             </div>
         </aside>
@@ -76,27 +76,27 @@
 
     <aside id="sidebar-menu" class="bg-blue-600 p-4 text-white sm:hidden lg:block">
         <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
-            <div id="register" class="hover:text-purple-900">
-                <a href="">
+            <div id="page1" class="hover:text-purple-900">
+                <a href="./">
                     <button>Home</button>
                 </a>
             </div>
-            <div id="login" class="hover:text-purple-900">
+            <div id="page2" class="hover:text-purple-900">
                 <a href="">
                     <button>Order Online</button>
                 </a>
             </div>
-            <div id="login" class="hover:text-purple-900">
+            <div id="page3" class="hover:text-purple-900">
                 <a href="">
                     <button>Contact Us</button>
                 </a>
             </div>
-            <div id="login" class="hover:text-purple-900">
+            <div id="page4" class="hover:text-purple-900">
                 <a href="">
                     <button>FAQs</button>
                 </a>
             </div>
-            <div id="login" class="hover:text-purple-900">
+            <div id="page5" class="hover:text-purple-900">
                 <a href="">
                     <button>About Us</button>
                 </a>
