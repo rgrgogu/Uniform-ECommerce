@@ -142,7 +142,7 @@
                 </div>
             </aside>
             <aside id="page-recommendation">
-                <div id="product-header" class="sm:text-2xl text-4xl font-bold sm:mb-4 lg:mb-8">
+                <div id="product-header" class="sm:text-2xl lg:text-4xl font-bold sm:mb-4 lg:mb-8">
                     <h2>You may also like</h2>  
                 </div>
                 <div class="lg:container lg:mx-auto grid lg:grid-cols-4 sm:grid-cols-1 gap-6 md:grid-cols-2">
