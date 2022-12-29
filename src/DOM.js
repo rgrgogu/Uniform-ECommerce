@@ -1,6 +1,6 @@
 const sidebar = document.querySelector("#sidebar"),
       sidebarMenu = document.querySelector("#sidebar-menu"),
-      menu = document.querySelector("#menu")
+      menu = document.querySelector("#menu"),
       bodyScroll = document.body
 
 menu.addEventListener("click", () => {
