@@ -110,7 +110,7 @@
                     <img src="../src/assets/test1.jpeg" alt="test me" class="w-full rounded-xl" />
                 </div>
                 <div id="productCart-details" class="flex justify-start flex-col">
-                    <div id="productCart-otherImage" class="inline-flex mb-4">
+                    <div id="productCart-otherImage" class="mb-4 sm:grid sm:grid-cols-2 sm:gap-6">
                         <img src="../src/assets/test1.jpeg" alt="test me" class="w-full border border-neutral-300 rounded-xl sm:mr-6 lg:mr-8" />
                         <img src="../src/assets/test1.jpeg" alt="test me" class="w-full border border-neutral-300 rounded-xl" />
                     </div>
@@ -149,38 +149,6 @@
                     <h2>You may also like</h2>  
                 </div>
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 sm:gap-4 md:gap-6 lg:grid-cols-4 lg:container lg:mx-auto flex-wrap">
-                    <div id="products">
-                        <div id="uniform" class="sm:mb-2 md:mb-4">
-                            <a id="link-include-please">
-                                <img src="../src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
-                            </a>
-                        </div>
-                        <div id="productItems" class="flex items-start sm:flex-col md:justify-between">
-                            <div class="w-32 truncate">
-                                <h2 class="font-bold sm:text-xl md:text-2xl">Uniform</h2>
-                                <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
-                            </div>
-                            <div id="cart">
-                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="products">
-                        <div id="uniform" class="sm:mb-2 md:mb-4">
-                            <a id="link-include-please">
-                                <img src="../src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
-                            </a>
-                        </div>
-                        <div id="productItems" class="flex items-start sm:flex-col md:justify-between">
-                            <div class="w-32 truncate">
-                                <h2 class="font-bold sm:text-xl md:text-2xl">Uniform</h2>
-                                <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
-                            </div>
-                            <div id="cart">
-                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
                     <div id="products">
                         <div id="uniform" class="sm:mb-2 md:mb-4">
                             <a id="link-include-please">
