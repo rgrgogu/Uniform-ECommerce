@@ -29,20 +29,20 @@
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
                 <div id="login" class="lg:mr-6">
-                    <a href="../login.html">
+                    <a href="../login.php">
                         <button>Login</button>
                     </a>
                 </div>
                 <div id="register" class="lg:mr-6">
-                    <a href="../register.html">
+                    <a href="../register.php">
                         <button>Register</button>
                     </a>
                 </div>
-                <div id="cart" class="">
+                <!-- <div id="cart" class="">
                     <span class="material-symbols-outlined text-3xl cursor-pointer">
                         shopping_bag
                     </span>
-                </div>
+                </div> -->
             </div>
             <div id="menu" class="cursor-pointer lg:hidden">
                 <span class="material-symbols-outlined pointer-events-none">
@@ -62,12 +62,12 @@
                 </div>
             </div>
             <div id="register" class="sm:mb-2">
-                <a href="../register.html">
+                <a href="../register.php">
                     <button>Register</button>
                 </a>
             </div>
             <div id="login" class="">
-                <a href="../login.html">
+                <a href="../login.php">
                     <button>Log In</button>
                 </a>
             </div>
@@ -80,17 +80,17 @@
                     </a>
                 </div>
                 <div id="page2" class="hover:text-purple-900">
-                    <a href="">
+                    <a href="../">
                         <button>Order Online</button>
                     </a>
                 </div>
                 <div id="page3" class="hover:text-purple-900">
-                    <a href="">
+                    <a href="../pages/contacts.php">
                         <button>Contact Us</button>
                     </a>
                 </div>
                 <div id="page4" class="hover:text-purple-900">
-                    <a href="">
+                    <a href="../pages/FAQ.php">
                         <button>FAQs</button>
                     </a>
                 </div>

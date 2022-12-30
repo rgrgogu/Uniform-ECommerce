@@ -29,19 +29,14 @@
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
                 <div id="login" class="lg:mr-6 hover:text-blue-600">
-                    <a href="./login.html">
+                    <a href="./login.php">
                         <button>Login</button>
                     </a>
                 </div>
                 <div id="register" class="lg:mr-6 hover:text-blue-600">
-                    <a href="./register.html">
+                    <a href="./register.php">
                         <button>Register</button>
                     </a>
-                </div>
-                <div id="cart" class="">
-                    <span class="material-symbols-outlined text-3xl cursor-pointer">
-                        shopping_bag
-                    </span>
                 </div>
             </div>
             <div id="menu" class="cursor-pointer lg:hidden">
@@ -62,12 +57,12 @@
                 </div>
             </div>
             <div id="register" class="sm:mb-2 hover:text-blue-700">
-                <a href="./login.html">
+                <a href="./login.php">
                     <button>Login</button>
                 </a>
             </div>
             <div id="login" class="hover:text-blue-700">
-                <a href="./register.html">
+                <a href="./register.php">
                     <button>Register</button>
                 </a>
             </div>
@@ -87,20 +82,20 @@
                 </a>
             </div>
             <div id="page3" class="hover:text-purple-900">
-                <a href="">
+                <a href="./pages/contacts.php">
                     <button>Contact Us</button>
                 </a>
             </div>
             <div id="page4" class="hover:text-purple-900">
-                <a href="">
+                <a href="./pages/FAQ.php">
                     <button>FAQs</button>
                 </a>
             </div>
             <div id="page5" class="hover:text-purple-900">
-                <a href="">
+                <a href="./pages/abouts.php">
                     <button>About Us</button>
                 </a>
-            </div>
+            </div>  
         </section>
     </aside>
 
@@ -108,7 +103,7 @@
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div id="products">
                 <div id="uniform" class="mb-4">
-                    <a href="./pages/productpage.html">
+                    <a href="./pages/productpage.php">
                         <img src="./src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
                     </a>
                 </div>
