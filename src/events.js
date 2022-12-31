@@ -7,3 +7,7 @@ const onlyNumberKey = (evt) => {
     return false || alert("Numbers only...") || window.location.reload(true);
     return true;
 }
+
+//This will redirects to login page
+
+const redirect = () => alert("Login first....") || window.location.replace("/login.html");
