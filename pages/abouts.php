@@ -9,7 +9,7 @@
     <link href="../dist/main.css" rel="stylesheet" />
     <title>Uniform | Abouts</title>
 </head>
-<body>
+<body class="bg-gradient-to-t from-white to-[#2E849F]">
     
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
@@ -73,7 +73,7 @@
                 </a>
             </div>
         </aside>
-        <aside id="sidebar-menu" class="bg-blue-600 p-4 text-white sm:hidden lg:block">
+        <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
             <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
                 <div id="page1" class="hover:text-purple-900">
                     <a href="../">

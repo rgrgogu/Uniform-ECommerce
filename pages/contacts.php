@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="../dist/main.css" rel="stylesheet" />
     <title>Uniform | Contacts</title>
 </head>
-<body>
+<body class="bg-gradient-to-t from-white to-[#2E849F]">
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
@@ -27,7 +28,7 @@
                   </button>
                 </div>
             </div>
-            <div class="sm:hidden lg:flex lg:items-center">
+            <div class="sm:hidden lg:flex lg:items-center text-white">
                 <div id="login" class="lg:mr-6">
                     <a href="../login.php">
                         <button>Login</button>
@@ -50,7 +51,7 @@
                 </span>
             </div>
         </nav>
-        <aside id="sidebar" class="bg-blue-500 p-4 text-white sm:hidden">
+        <aside id="sidebar" class="bg-[#2E849F] p-4 text-white sm:hidden">
             <div id="search" class="w-full mb-4">
                 <div class="input-group relative flex flex-nowrap items-stretch w-full">
                   <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-tl-lg rounded-bl-lg transition ease-in-out m-0" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
@@ -72,7 +73,7 @@
                 </a>
             </div>
         </aside>
-        <aside id="sidebar-menu" class="bg-blue-600 p-4 text-white sm:hidden lg:block">
+        <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
             <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
                 <div id="page1" class="hover:text-purple-900">
                     <a href="../">
@@ -104,7 +105,7 @@
     </header>
 
     <main id="bulletin" class="sm:p-6 lg:p-12">
-        <aside class="lg:container lg:mx-auto bg-blue-500 sm:p-6 lg:p-12 rounded-xl text-white grid lg:grid-cols-2 sm:grid-cols-1 lg:gap-6">
+        <aside class="lg:container lg:mx-auto bg-[#8ABFD0] sm:p-6 lg:p-12 rounded-xl grid lg:grid-cols-2 sm:grid-cols-1 lg:gap-6">
             <div id="left-panel">
                 <header class="mb-2">
                     <h2 class="text-3xl font-bold mb-2">Get in touch</h2>
@@ -115,7 +116,7 @@
                     <input type="text" placeholder="Enter your name" class="p-3 px-4 rounded-lg mb-4 border-none w-full text-black" autocomplete="off" required />
                     <input type="email" placeholder="Enter your email address" class="p-3 px-4 rounded-lg mb-4 border-none w-full text-black" autocomplete="off" required />
                     <textarea id="w3review" class="border border-black p-3 px-4 rounded-lg mb-4 border-none w-full text-black" autocomplete="off" required>Feedbacks or concerns</textarea>
-                    <input type="submit" value="Submit" class="bg-purple-600 w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
+                    <input type="submit" value="Submit" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
                 </form>
             </div>
             <div id="right-panel">
@@ -127,11 +128,11 @@
                     </div>
                     <div class="mb-2">
                         <span class="lg:text-xl mb-2 block">For Online Order Concerns</span>
-                        <p class="lg:text-lg font-bold">(+63)925-899-1595</p>
+                        <p class="before:font-['Font_Awesome_5_Free'] before:content-['\f095'] before:bg-white before:p-2 before:mr-2 before:rounded-full lg:text-lg font-bold">(+63)925-899-1595</p>
                     </div>
                     <div>
                         <span class="lg:text-xl mb-2 block">or via Email</span>
-                        <p class="lg:text-lg font-bold">(+63)908-859-7995</p>
+                        <p class="before:font-['Font_Awesome_5_Free'] before:content-['\f0e0'] before:bg-white before:p-2 before:mr-2 before:rounded-full lg:text-lg font-bold">(+63)908-859-7995</p>
                     </div>
                 </div>
             </div>

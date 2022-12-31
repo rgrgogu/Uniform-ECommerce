@@ -9,7 +9,7 @@
     <link href="./dist/main.css" rel="stylesheet" />
     <title>Uniform | Shop</title>
 </head>
-<body>
+<body class="bg-gradient-to-t from-white to-[#2E849F]">
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
@@ -27,7 +27,7 @@
                   </button>
                 </div>
             </div>
-            <div class="sm:hidden lg:flex lg:items-center">
+            <div class="sm:hidden lg:flex lg:items-center text-white">
                 <div id="login" class="lg:mr-6 hover:text-blue-600">
                     <a href="./login.php">
                         <button>Login</button>
@@ -69,7 +69,12 @@
         </aside>
     </header>
 
-    <aside id="sidebar-menu" class="bg-blue-600 p-4 text-white sm:hidden lg:block">
+        <!-- 
+        linear = #2E849F #FFFFFF 
+        solid = #2E849F
+    -->
+
+    <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
         <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
             <div id="page1" class="hover:text-purple-900">
                 <a href="./">
@@ -103,7 +108,7 @@
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div id="products">
                 <div id="uniform" class="mb-4">
-                    <a href="./pages/productpage.php">
+                    <a href="./pages/productpage.html">
                         <img src="./src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
                     </a>
                 </div>
@@ -113,7 +118,7 @@
                         <p class="mb-2 mt-2">paragraph is paragraph</p>
                     </div>
                     <div id="cart">
-                        <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3" onclick="redirect()">Add to Cart</button>
+                        <button class="bg-[#2E849F] p-4 px-12 rounded-xl text-white sm:p-2 md:p-3" onclick="redirect()">Add to Cart</button>
                     </div>
                 </div>
             </div>

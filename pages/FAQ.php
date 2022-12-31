@@ -9,7 +9,7 @@
     <link href="../dist/main.css" rel="stylesheet" />
     <title>Uniform | FAQs</title>
 </head>
-<body>
+<body class="bg-gradient-to-t from-white to-[#2E849F]">
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
@@ -27,7 +27,7 @@
                   </button>
                 </div>
             </div>
-            <div class="sm:hidden lg:flex lg:items-center">
+            <div class="sm:hidden lg:flex lg:items-center text-white">
                 <div id="login" class="lg:mr-6">
                     <a href="../login.php">
                         <button>Login</button>
@@ -72,7 +72,7 @@
                 </a>
             </div>
         </aside>
-        <aside id="sidebar-menu" class="bg-blue-600 p-4 text-white sm:hidden lg:block">
+        <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
             <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
                 <div id="page1" class="hover:text-purple-900">
                     <a href="../">
@@ -109,7 +109,7 @@
                 <h2 class="font-bold text-4xl mb-4">Frequency Asked Questions</h2>
             </header>
             <div id="dropdown-menu">
-                <div class="border-inherit shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
+                <div class="bg-white mb-4 shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
                     <div id="dropdown" class="flex items-center justify-between">
                         <span class="font-bold text-xl">Shipping & Delivery</span>
                         <i class="material-symbols-outlined">expand_more</i>
@@ -120,7 +120,7 @@
                         <p>Provincial Areas - 7 to 14 working days</p>
                     </div>
                 </div>
-                <div class="border-inherit shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
+                <div class="bg-white shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
                     <div id="dropdown2" class="flex items-center justify-between">
                         <span class="font-bold text-xl">Payment Methods</span>
                         <i class="material-symbols-outlined">expand_more</i>
