@@ -103,7 +103,7 @@
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div id="products">
                 <div id="uniform" class="mb-4">
-                    <a href="./pages/productpage.php">
+                    <a href="./pages/productpage.html">
                         <img src="./src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
                     </a>
                 </div>
@@ -113,7 +113,7 @@
                         <p class="mb-2 mt-2">paragraph is paragraph</p>
                     </div>
                     <div id="cart">
-                        <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3">Add to Cart</button>
+                        <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3" onclick="redirect()">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -122,6 +122,7 @@
     </section>
 
     <script src="./src/DOM.js"></script>
+    <script src="./src/events.js"></script>
 
 </body>
 </html>

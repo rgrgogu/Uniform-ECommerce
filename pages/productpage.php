@@ -140,7 +140,7 @@
                     </div>
                     <div id="product-price">
                         <h2 class="font-bold text-3xl mb-4">P500</h2>
-                        <button class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600">Add to Cart</button>
+                        <button class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600" onclick="redirect()">Add to Cart</button>
                     </div>
                 </div>
             </aside>
@@ -161,7 +161,7 @@
                                 <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
                             </div>
                             <div id="cart">
-                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600">Add to Cart</button>
+                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600" onclick="redirect()">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
         </main>
     </section>
 
-    <script src="../src/DOM.js"></script>
+    <script src="../src/events.js"></script>
 
 </body>
 </html>
