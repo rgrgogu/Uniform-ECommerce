@@ -103,7 +103,7 @@
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div id="products">
                 <div id="uniform" class="mb-4">
-                    <a href="./pages/productpage.html">
+                    <a href="./pages/productpage.php">
                         <img src="./src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl"/>
                     </a>
                 </div>
