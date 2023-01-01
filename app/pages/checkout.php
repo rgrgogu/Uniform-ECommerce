@@ -46,9 +46,9 @@
             </div>
             <div class="lg:hidden flex items-center">
                 <div id="login" class="lg:mr-4">
-                    <button class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
+                    <a href="./profiles.html" class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
                         account_circle                         
-                    </button>
+                    </a>
                 </div>
                 <div id="menu-mobile" class="cursor-pointer sm:ml-2">
                     <span class="material-symbols-outlined pointer-events-none">

@@ -1,5 +1,12 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss-cli": "^10.1.0"
+  },
+  "scripts": {
+    "build": "postcss src/globals.css -o dist/main.css"
   }
 }

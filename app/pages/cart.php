@@ -29,9 +29,9 @@
                     </div>
                 </div>
                 <div id="login" class="lg:mr-4 block">
-                    <button class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
+                    <a href="./profiles.html" class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
                         account_circle                         
-                    </button>
+                    </a>
                 </div>
                 <div id="cart" class="lg:mr-4">
                     <span class="material-symbols-outlined text-3xl cursor-pointer">

@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" /> 
-    <link href="../../dist/main.css" rel="stylesheet" />
-    <title>Uniform | FAQs</title>
+    <link href="../dist/main.css" rel="stylesheet" />
+    <title>username | Uniform</title>
 </head>
 <body class="bg-gradient-to-t from-white to-[#2E849F] h-screen">
-    <header id="navbar-container" class="">
+<header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
                 <a href="./">
-                    <img src="../../src/assets/plm-logo--with-header.png" alt="">
+                    <img src="../src/assets/plm-logo--with-header.png" alt="">
                 </a>
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
@@ -34,7 +34,7 @@
                     </a>
                 </div>
                 <div id="cart" class="lg:mr-4">
-                    <a href="./pages/cart.html" class="material-symbols-outlined text-3xl cursor-pointer">
+                    <a href="./pages/cart.php" class="material-symbols-outlined text-3xl cursor-pointer">
                         shopping_bag
                     </a>
                 </div>
@@ -51,7 +51,7 @@
                     </button>
                 </div>
                 <div id="cart" class="sm:ml-2">
-                    <a href="./cart.html" class="material-symbols-outlined text-3xl cursor-pointer">
+                    <a href="./pages/cart.php" class="material-symbols-outlined text-3xl cursor-pointer">
                         shopping_bag
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                 </div>
             </div>
             <div id="page1" class="hover:text-purple-900">
-                <a href="../">
+                <a href="./">
                     <button>Home</button>
                 </a>
             </div>
@@ -84,17 +84,17 @@
                 </a>
             </div>
             <div id="page3" class="hover:text-purple-900">
-                <a href="./contacts.php">
+                <a href="./pages/contacts.php">
                     <button>Contact Us</button>
                 </a>
             </div>
             <div id="page4" class="hover:text-purple-900">
-                <a href="faqs.php">
+                <a href="./pages/faq.php">
                     <button>FAQs</button>
                 </a>
             </div>
             <div id="page5" class="hover:text-purple-900">
-                <a href="./abouts.php">
+                <a href="./pages/abouts.php">
                     <button>About Us</button>
                 </a>
             </div>
@@ -108,7 +108,7 @@
     <aside id="sidebar-desktop" class="flex items-end flex-col lg:container lg:mx-auto absolute top-20 right-14 z-20 sm:hidden">
         <section class="bg-blue-500 p-4 text-white rounded-lg">
             <div id="page1" class="hover:text-purple-900">
-                <a href="../">
+                <a href="./">
                     <button>Home</button>
                 </a>
             </div>
@@ -118,17 +118,17 @@
                 </a>
             </div>
             <div id="page3" class="hover:text-purple-900">
-                <a href="./contacts.php">
+                <a href="./pages/contacts.php">
                     <button>Contact Us</button>
                 </a>
             </div>
             <div id="page4" class="hover:text-purple-900">
-                <a href="./faq.php">
+                <a href="./pages/faq.php">
                     <button>FAQs</button>
                 </a>
             </div>
             <div id="page5" class="hover:text-purple-900">
-                <a href="abouts.php">
+                <a href="./pages/abouts.php">
                     <button>About Us</button>
                 </a>
             </div>
@@ -140,40 +140,42 @@
         </section>
     </aside>
 
-    <main id="bulletin" class="sm:p-6 lg:p-12">
-        <aside class=" flex items-center flex-col lg:container lg:mx-auto">
-            <header>
-                <h2 class="font-bold text-4xl mb-4">Frequency Asked Questions</h2>
-            </header>
-            <div id="dropdown-menu">
-                <div class="bg-white mb-4 shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
-                    <div id="dropdown" class="flex items-center justify-between">
-                        <span class="font-bold text-xl">Shipping & Delivery</span>
-                        <i class="material-symbols-outlined">expand_more</i>
+    <section class="sm:pt-2 sm:p-6 lg:p-12">
+        <aside class="lg:container lg:mx-auto flex items-center lg:max-w-3xl">
+            <div id="profile">
+                <div id="top-banner" class="flex items-center sm:flex-col lg:flex-row mb-4">
+                    <div id="img-user">
+                        <img src="../src/assets/profile.jpg" class="w-20 rounded-full object-cover mr-4"/>
                     </div>
-                    <div id="drop-content" class="sm:hidden">
-                        <h2>How long before my orders get delivered?</h2>
-                        <p>Standard Shipping: Metro Manila - 1 to 3 working days</p>
-                        <p>Provincial Areas - 7 to 14 working days</p>
+                    <div id="user">
+                        <h2 class="font-bold text-xl">username</h2>
+                        <p>Manage your account by updating some information</p>
                     </div>
                 </div>
-                <div class="bg-white shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
-                    <div id="dropdown2" class="flex items-center justify-between">
-                        <span class="font-bold text-xl">Payment Methods</span>
-                        <i class="material-symbols-outlined">expand_more</i>
+                <div id="two-selector" class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div id="left-panel-dot" class="lg:col-end-1">
+                        <div class="lg:p-2">
+                            <a href="" class="font-bold">General</a>
+                        </div>
+                        <div class="lg:p-2">
+                            <a href="./password.php" class="">Password</a>
+                        </div>
+                        <div class="lg:p-2">
+                            <a href="./delete_acc.php" class="text-red-500">Delete account</a>
+                        </div>
                     </div>
-                    <div id="drop-content2" class="sm:hidden">
-                        <h2 class="font-bold">GCASH: (+63)967-205-2107</h2>
-                        <p>Send screenshot of payment thru out email: plmcoop@plm.edu.ph</p>
-                        <h2 class="font-bold">Cash on Delivery</h2>
-                        <h2 class="font-bold">Store Pick Up</h2>
-                        <p>Present the QR Code that given to you by our staffs</p>
-                    </div>
+                    <form id="right-panel-dot" class="lg:col-span-2">
+                        <div id="information">
+                            <label>Name</label>
+                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="username" />
+                            <label>Password(Disabled)</label>
+                            <input type="password" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2 disabled:bg-slate-400" disabled />
+                            <input type="submit" value="Submit" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </aside>
-    </main>
-
-    <script src="../sidemenu.js"></script>
+    </section>
 </body>
 </html>
