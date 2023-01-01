@@ -7,13 +7,7 @@ $database = "uniform_db";
 
 $con = mysqli_connect("$host","$username","$password","$database");
 
-if(!$con) 
-
-{   header("");
-        die();
-
+if(!$con) {   
+    header("");
+    die();
 }
-    
-
-
-?>
