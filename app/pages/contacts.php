@@ -52,7 +52,7 @@
                     </button>
                 </div>
                 <div id="cart" class="sm:ml-2">
-                    <a href="./cart.html" class="material-symbols-outlined text-3xl cursor-pointer">
+                    <a href="./cart.php" class="material-symbols-outlined text-3xl cursor-pointer">
                         shopping_bag
                     </a>
                 </div>
@@ -90,12 +90,12 @@
                 </a>
             </div>
             <div id="page4" class="hover:text-purple-900">
-                <a href="./faq.html">
+                <a href="./faq.php">
                     <button>FAQs</button>
                 </a>
             </div>
             <div id="page5" class="hover:text-purple-900">
-                <a href="./abouts.html">
+                <a href="./abouts.php">
                     <button>About Us</button>
                 </a>
             </div>
@@ -119,17 +119,17 @@
                 </a>
             </div>
             <div id="page3" class="hover:text-purple-900">
-                <a href="">
+                <a href="contacts.php">
                     <button>Contact Us</button>
                 </a>
             </div>
             <div id="page4" class="hover:text-purple-900">
-                <a href="./faq.html">
+                <a href="./faq.php">
                     <button>FAQs</button>
                 </a>
             </div>
             <div id="page5" class="hover:text-purple-900">
-                <a href="./abouts.html">
+                <a href="./abouts.php">
                     <button>About Us</button>
                 </a>
             </div>

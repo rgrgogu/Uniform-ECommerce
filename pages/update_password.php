@@ -19,7 +19,7 @@ session_start();
             <header class="mb-4">
                 <h2 class="sm:text-2xl lg:text-4xl font-bold mb-2">Update Password!</h2>
             </header>
-            <form action="../PHP Database/admin_forgot.php" method="POST" id="switchTab" class="w-full">
+            <form action="../PHP Database/client_forgot.php" method="POST" id="switchTab" class="w-full">
                 <div class="flex flex-col">
                     <input type="password" name="password" placeholder="Enter New Password" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
                     <input type="password" name="confirmPass" placeholder="Re-enter New Password" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />

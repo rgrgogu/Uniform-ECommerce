@@ -13,14 +13,14 @@
         // echo $email. "<br>";
         // echo $password . "<br>";
 
-        $query = "SELECT admin_id FROM admin_info WHERE first_name = '$fname' AND last_name = '$lname' AND email = '$email'";
+        $query = "SELECT client_id FROM client_info WHERE first_name = '$fname' AND last_name = '$lname' AND email = '$email'";
 
         try{
             $checkQuery = mysqli_query($con, $query);
 
             if(mysqli_num_rows($checkQuery) != 0){
-                $admin_id = $checkQuery->fetch_assoc()['admin_id'];
-                $_SESSION['admin_id'] = $admin_id;
+                $client_id = $checkQuery->fetch_assoc()['client_id'];
+                $_SESSION['client_id'] = $client_id;
                 header('Location: ../pages/update_password.php');
                 exit(0);
             }
@@ -39,9 +39,9 @@
         $confirmPass = $_POST['confirmPass'];
 
         if($password == $confirmPass){
-            $admin_id = $_SESSION['admin_id'];
+            $client_id = $_SESSION['client_id'];
 
-            $query = "UPDATE admin_info SET password='$password' WHERE admin_id = '$admin_id'";
+            $query = "UPDATE client_info SET password='$password' WHERE client_id = '$client_id'";
 
             try{
                 $checkQuery = mysqli_query($con, $query);

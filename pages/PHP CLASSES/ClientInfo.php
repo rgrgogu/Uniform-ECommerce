@@ -1,7 +1,7 @@
 <?php
-    class AdminInfo{
+    class ClientInfo{
         // ATTRIBUTES
-        private $admin_id;
+        private $client_id;
         private $first_name;
         private $last_name;
         private $contact;
@@ -11,7 +11,7 @@
         // CONSTRUCTOR
         function __construct($arr)
         {
-            $this->admin_id = $arr[0];
+            $this->client_id = $arr[0];
             $this->first_name = $arr[1];
             $this->last_name = $arr[2];
             $this->contact = $arr[3];
@@ -20,8 +20,8 @@
         }
 
         // SETTERS
-        function setAdminID($admin_id){
-            $this->admin_id = $admin_id;
+        function setAdminID($client_id){
+            $this->client_id = $client_id;
         }
 
         function setFirstName($first_name){
@@ -45,8 +45,8 @@
         }
 
         // GETTERS
-        function getAdminID(){
-            return $this->admin_id;
+        function getClientID(){
+            return $this->client_id;
         }
 
         function getFirstName(){

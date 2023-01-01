@@ -18,8 +18,8 @@ if (isset($_POST['btn_register'])) {
     // echo $confirmPass . "<br>";
 
     if ($password == $confirmPass) {
-        $query = "SELECT * FROM admin_info WHERE email = '$email' AND first_name='$fname' AND last_name='$lname'";
-        $query1 = "INSERT INTO `admin_info`(`first_name`, `last_name`, `contact`, `email`, `password`) 
+        $query = "SELECT * FROM client_info WHERE email = '$email' AND first_name='$fname' AND last_name='$lname'";
+        $query1 = "INSERT INTO `client_info`(`first_name`, `last_name`, `contact`, `email`, `password`) 
             VALUES ('$fname','$lname','$contact','$email','$password')";
 
         try {
@@ -29,7 +29,7 @@ if (isset($_POST['btn_register'])) {
                 try {
                     $checkQuery1 = mysqli_query($con, $query1);
                     $_SESSION['message'] = "Account successfully registered";
-                    header('Location: ../index.php');
+                    header('Location: ../pages/login.php');
                 } catch (Exception $e) {
                     $_SESSION['message'] = "Something went wrong";
                     header('Location: ../index.php');
@@ -49,5 +49,3 @@ if (isset($_POST['btn_register'])) {
 }
 
 ?>
-
-<script src="../pages/register.php"></script>
