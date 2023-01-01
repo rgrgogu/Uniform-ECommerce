@@ -40,7 +40,7 @@ include('../PHP Database/dbcon.php');
                     </a>
                 </div>
                 <div id="register" class="lg:mr-6">
-                    <a href="../register.php">
+                    <a href="../index.php">
                         <button class="text-white">Logout</button>
                     </a>
                 </div>
