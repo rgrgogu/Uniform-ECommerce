@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('../PHP Database/dbcon.php');
+
+$newAdmin = $_SESSION['object'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +28,7 @@ include('../PHP Database/dbcon.php');
                 </a>
             </div>
             <div id="search" class="w-96 sm:hidden lg:block">
-                <div class="input-group relative flex flex-nowrap items-stretch w-full">
+                ../pages/order_management.php <div class="input-group relative flex flex-nowrap items-stretch w-full">
                     <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-tl-lg rounded-bl-lg transition ease-in-out m-0" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
                     <button class="btn px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-tr-lg rounded-br-lg flex items-center">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -37,12 +40,12 @@ include('../PHP Database/dbcon.php');
             <div class="sm:hidden lg:flex lg:items-center">
                 <div id="login" class="lg:mr-6">
                     <a href="../login.php">
-                        <button class="text-white">Login</button>
+                        <button class="text-white">My Profile</button>
                     </a>
                 </div>
                 <div id="register" class="lg:mr-6">
                     <a href="../register.php">
-                        <button class="text-white">Register</button>
+                        <button class="text-white">Logout</button>
                     </a>
                 </div>
                 <!-- <div id="cart" class="">

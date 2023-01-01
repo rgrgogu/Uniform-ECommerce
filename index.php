@@ -25,8 +25,8 @@ session_start();
                 <p class="sm:text-xs md:text-base">Sign In with your email and password below</p>
             </header>
             <form class="w-full flex flex-col items-stretch" action="./PHP Database/admin_login.php" method="POST">
-                <input type="email" placeholder="Email" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
-                <input type="password" placeholder="Password" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
+                <input type="email" name="email" placeholder="Email" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
+                <input type="password" name="password" placeholder="Password" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
                 <a href="./pages/forgot_password.php" class="self-center mb-4">
                     <span class="">Forgot password?</span>
                 </a>
