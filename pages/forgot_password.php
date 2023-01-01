@@ -20,7 +20,7 @@ session_start();
                 <h2 class="sm:text-2xl lg:text-4xl font-bold mb-2">Forgot Password!</h2>
                 <p class="sm:text-xs md:text-base">Enter details of the account here</p>
             </header>
-            <form action="../PHP Database/admin_forgot.php" method="POST" id="switchTab" class="w-full">
+            <form action="../PHP Database/client_forgot.php" method="POST" id="switchTab" class="w-full">
                 <div class="flex flex-col">
                     <input type="text" name="fName" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                     <input type="text" name="lName" placeholder="Last Name" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />

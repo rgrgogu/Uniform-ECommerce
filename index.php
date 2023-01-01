@@ -29,7 +29,7 @@
             </div>
             <div class="sm:hidden lg:flex lg:items-center text-white">
                 <div id="login" class="lg:mr-6 hover:text-blue-600">
-                    <a href="./login.php">
+                    <a href="./pages/login.php">
                         <button>Login</button>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div id="register" class="sm:mb-2 hover:text-blue-700">
-                <a href="./login.php">
+                <a href="./pages/login.php">
                     <button>Login</button>
                 </a>
             </div>
