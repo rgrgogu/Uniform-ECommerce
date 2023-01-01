@@ -49,8 +49,13 @@ $newAdmin = $_SESSION['object'];
                 </div>
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
+                <div id="home" class="lg:mr-6">
+                    <a href="./profiles.php">
+                        <button class="text-white">Home</button>
+                    </a>
+                </div>
                 <div id="login" class="lg:mr-6">
-                    <a href="../login.php">
+                    <a href="./profiles.php">
                         <button class="text-white">My Profile</button>
                     </a>
                 </div>
@@ -82,8 +87,13 @@ $newAdmin = $_SESSION['object'];
                     </button>
                 </div>
             </div>
+            <div id="home" class="lg:mr-6">
+                <a href="./profiles.php">
+                    <button class="text-white">Home</button>
+                </a>
+            </div>
             <div id="register" class="sm:mb-2">
-                <a href="../register.php">
+                <a href="./profiles.php">
                     <button class="text-white">My Profile</button>
                 </a>
             </div>
