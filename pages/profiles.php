@@ -1,3 +1,9 @@
+<?php
+require('./PHP Classes/AdminInfo.php');
+session_start();
+$newAdmin = $_SESSION['object'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,25 +109,10 @@
                 </a>
             </div>
         </aside>
-        <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
-            <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
-
-                <div id="page1" class="hover:text-purple-900">
-                    <a href="order_management.php">
-                        <button class="text-white">Order Management</button>
-                    </a>
-                </div>
-                <div id="page2" class="hover:text-purple-900">
-                    <a href="product_management.php">
-                        <button class="text-white">Products</button>
-                    </a>
-                </div>
-
-            </section>
-        </aside>
     </header>
 
     <section class="sm:pt-2 sm:p-6 lg:p-12">
+        <?php include('../PHP Database/messages.php'); ?>
         <aside class="lg:container lg:mx-auto flex items-center lg:max-w-3xl">
             <div id="profile">
                 <div id="top-banner" class="flex items-center sm:flex-col lg:flex-row mb-4">
@@ -129,31 +120,30 @@
                         <img src="../src/assets/profile.png" class="w-20 rounded-full object-cover mr-4" />
                     </div>
                     <div id="user">
-                        <h2 class="font-bold text-xl">Name</h2>
+                        <h2 class="font-bold text-xl">MY PROFILE</h2>
                         <p>Manage your account by updating some information</p>
                     </div>
                 </div>
                 <div id="two-selector" class="grid sm:grid-cols-1 gap-6">
-                    <form id="right-panel-dot" class="lg:col-span-2">
+                    <form id="right-panel-dot" class="lg:col-span-2" action="../PHP Database/admin_edit.php" method="POST">
                         <div id="information">
                             <label class="font-bold">First Name</label>
-                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="First Name" />
+                            <input type="text" name="fName" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newAdmin->getFirstName(); ?>" />
                             <label class="font-bold">Last Name</label>
-                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Last Name" />
+                            <input type="text" name="lName" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newAdmin->getLastName(); ?>" />
                             <label class="font-bold">Email Address</label>
-                            <input type="email" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Email" />
+                            <input type="email" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newAdmin->getEmail(); ?>" disabled />
                             <label class="font-bold">Contact Number</label>
-                            <input type="tel" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Contact Number" />
+                            <input type="tel" name="contact" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newAdmin->getContact(); ?>" />
                             <label class="font-bold">Password</label>
-                            <input type="password" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="First Name" />
-                            <input type="submit" value="Submit" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
+                            <input type="password" name="pass" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newAdmin->getPassword(); ?>" />
+                            <input type="submit" name="btn_edit" value="Update Profile" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
                         </div>
                     </form>
                 </div>
             </div>
         </aside>
     </section>
-
     <script src="./sidemenu.js"></script>
 </body>
 
