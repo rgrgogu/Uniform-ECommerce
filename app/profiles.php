@@ -9,7 +9,7 @@
     <link href="../dist/main.css" rel="stylesheet" />
     <title>username | Uniform</title>
 </head>
-<body class="bg-gradient-to-t from-white to-[#2E849F] h-screen">
+<body class="bg-gradient-to-t from-white to-[#2E849F]">
 <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
@@ -46,9 +46,9 @@
             </div>
             <div class="lg:hidden flex items-center">
                 <div id="login" class="lg:mr-4">
-                    <button class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
+                    <a href="" class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
                         account_circle                         
-                    </button>
+                    </a>
                 </div>
                 <div id="cart" class="sm:ml-2">
                     <a href="./pages/cart.php" class="material-symbols-outlined text-3xl cursor-pointer">
@@ -148,28 +148,21 @@
                         <img src="../src/assets/profile.jpg" class="w-20 rounded-full object-cover mr-4"/>
                     </div>
                     <div id="user">
-                        <h2 class="font-bold text-xl">username</h2>
+                        <h2 class="font-bold text-xl">Name</h2>
                         <p>Manage your account by updating some information</p>
                     </div>
                 </div>
-                <div id="two-selector" class="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div id="left-panel-dot" class="lg:col-end-1">
-                        <div class="lg:p-2">
-                            <a href="" class="font-bold">General</a>
-                        </div>
-                        <div class="lg:p-2">
-                            <a href="./password.php" class="">Password</a>
-                        </div>
-                        <div class="lg:p-2">
-                            <a href="./delete_acc.php" class="text-red-500">Delete account</a>
-                        </div>
-                    </div>
+                <div id="two-selector" class="grid sm:grid-cols-1 gap-6">
                     <form id="right-panel-dot" class="lg:col-span-2">
                         <div id="information">
-                            <label>Name</label>
-                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="username" />
-                            <label>Password(Disabled)</label>
-                            <input type="password" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2 disabled:bg-slate-400" disabled />
+                            <label class="font-bold">First Name</label>
+                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="First Name" />
+                            <label class="font-bold">Last Name</label>
+                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Last Name" />
+                            <label class="font-bold">Contact Number</label>
+                            <input type="tel" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Contact Number" />
+                            <label class="font-bold">Password</label>
+                            <input type="password" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="First Name" />
                             <input type="submit" value="Submit" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
                         </div>
                     </form>
