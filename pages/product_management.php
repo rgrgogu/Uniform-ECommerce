@@ -148,10 +148,10 @@ $newAdmin = $_SESSION['object'];
                         <p class ="card-text">Stocks: <?php echo $row['product_stocks'];?> </p>
                         <p class ="card-text">Price: <?php echo $row['product_price'];?></p>
                         <div class="col-12 mt-2 d-flex justify-content-center align-items-center pt-1 pb-1 row p-1" style="margin-left:-3px">  
-                            <a class="btn btn-primary btn-marg" href="update_del_product.php?product_id=<?php echo $row['product_id']; ?>">Update</a>   
+                            <a class="btn btn-primary btn-marg" href="update_product.php?product_id=<?php echo $row['product_id']; ?>">Update</a>   
                         </div>
                         <div  class="col-12 d-flex justify-content-center pt-1 pb-1 row p-1" style="margin-left:-3px">
-                        <a class="btn btn-danger btn-marg" href="update_del_product.php?product_id=<?php echo $row['product_id']; ?>">Delete</a>
+                        <a class="btn btn-danger btn-marg" href="delete_product.php?product_id=<?php echo $row['product_id']; ?>">Delete</a>
                         </div>
                     </div>
                 </div>
