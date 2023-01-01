@@ -111,7 +111,7 @@ include('../PHP Database/dbcon.php');
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM uniform_db.client_info";
+                    $query = "SELECT * FROM uniform_db.order_list";
                     $query_run = mysqli_query($con, $query);
 
                     if (mysqli_num_rows($query_run) > 0) {
