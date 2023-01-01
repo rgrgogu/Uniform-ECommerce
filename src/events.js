@@ -10,4 +10,4 @@ const onlyNumberKey = (evt) => {
 
 //This will redirects to login page
 
-const redirect = () => alert("Login first....") || window.location.replace("/login.html");
+const redirect = () => alert("Login first....") || window.location.replace("/login.html")
