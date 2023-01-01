@@ -19,7 +19,6 @@ $newAdmin = $_SESSION['object'];
 </head>
 
 <body class="bg-gradient-to-t from-white to-[#2E849F]">
-
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
@@ -28,7 +27,7 @@ $newAdmin = $_SESSION['object'];
                 </a>
             </div>
             <div id="search" class="w-96 sm:hidden lg:block">
-                ../pages/order_management.php <div class="input-group relative flex flex-nowrap items-stretch w-full">
+                <div class="input-group relative flex flex-nowrap items-stretch w-full">
                     <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-tl-lg rounded-bl-lg transition ease-in-out m-0" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
                     <button class="btn px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-tr-lg rounded-br-lg flex items-center">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
