@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('../PHP Database/dbcon.php');
+
+$newAdmin = $_SESSION['object'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +15,19 @@ include('../PHP Database/dbcon.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="../dist/main.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Product Management | E-Shop</title>
+    <title>Order Management | E-Shop</title>
+    <style>     
+        .img {
+            height: 250px;
+            width: 900px;
+           
+        }
+
+        .card{
+            margin: 0 5px;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-to-t from-white to-[#2E849F]">
@@ -37,12 +52,12 @@ include('../PHP Database/dbcon.php');
             <div class="sm:hidden lg:flex lg:items-center">
                 <div id="login" class="lg:mr-6">
                     <a href="../login.php">
-                        <button class="text-white">Login</button>
+                        <button class="text-white">My Profile</button>
                     </a>
                 </div>
                 <div id="register" class="lg:mr-6">
                     <a href="../register.php">
-                        <button class="text-white">Register</button>
+                        <button class="text-white">Logout</button>
                     </a>
                 </div>
                 <!-- <div id="cart" class="">
@@ -70,12 +85,12 @@ include('../PHP Database/dbcon.php');
             </div>
             <div id="register" class="sm:mb-2">
                 <a href="../register.php">
-                    <button class="text-white">Register</button>
+                    <button class="text-white">My Profile</button>
                 </a>
             </div>
             <div id="login" class="">
                 <a href="../login.php">
-                    <button class="text-white">Log In</button>
+                    <button class="text-white">Logout</button>
                 </a>
             </div>
         </aside>
@@ -99,14 +114,66 @@ include('../PHP Database/dbcon.php');
 
     <main id="bulletin" class="sm:p-6 lg:p-12">
         <aside class=" flex items-center flex-col lg:container lg:mx-auto">
-            <table class="table table-light  table-hover">
+        <div class="container-fluid px-4 ">
+        <h4 class="">ADMIN</h4>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item">Product</li>
+        </ol>
+
+        <?php include('../PHP Database/messages.php'); ?>
+
+        <div class="mb-5 rounded text-dark " style="background-color: #eee;">
+            <div class="card-header">
+                <h4 class="p-3">Products
+                    <a href="add_product.php" id="create_new" class="btn btn-primary float-end"><span class="fas fa-plus"></span> Add New Product</a>
+                </h4>
+            </div>
+            <div class="px-3 py-3 row" style="justify-content: center;">
+                <?php
+                 $query = "SELECT * FROM uniform_db.product_list";
+                 $query_run = mysqli_query($con, $query);
+
+                    if (mysqli_num_rows($query_run) > 0) {
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                ?>
+         
+                <div class="card  text-dark  bg-info  "  style ="width: 18rem;">
+                    <?php
+                        echo "<img class='card-img-top img  mt-3 rounded-3 ' src='../src/assets/" . $row['product_img'] . "' >";
+                    ?>
+                    <div class="card-body">
+                        <h5 class ="card-title font-weight-bold"><?php echo $row['product_name']; ?></h5>
+                        <p class ="card-text">Category: <?php echo $row['product_category'];?> </p>
+                        <p class ="card-text">Stocks: <?php echo $row['product_stocks'];?> </p>
+                        <p class ="card-text">Price: <?php echo $row['product_price'];?></p>
+                        <div class="col-12 mt-2 d-flex justify-content-center align-items-center pt-1 pb-1 row p-1" style="margin-left:-3px">  
+                            <a class="btn btn-primary btn-marg" href="update_del_product.php?product_id=<?php echo $row['product_id']; ?>">Update</a>   
+                        </div>
+                        <div  class="col-12 d-flex justify-content-center pt-1 pb-1 row p-1" style="margin-left:-3px">
+                        <a class="btn btn-danger btn-marg" href="update_del_product.php?product_id=<?php echo $row['product_id']; ?>">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                        }
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+            <!-- <table class="table table-light  table-hover">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Category</th>
-                        <th>Available Stocks</th>
+           
+                </tr>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Items/Bought</th>
+                        <th>Payment Method</th>
                         <th>Price</th>
-                        <th>Action</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -118,16 +185,13 @@ include('../PHP Database/dbcon.php');
                         foreach ($query_run as $rows) {
                     ?>
                             <tr>
+                                <td><?= $rows['order_id']; ?></td>
+                                <td><?= $rows['Firstname']; ?></td>
                                 <td><?= $rows['product_type']; ?></td>
-                                <td><?= $rows['product_category']; ?></td>
-                                <td><?= $rows['product_stocks']; ?></td>
-                                <td><?= $rows['product_price']; ?></td>
+                                <td><?= $rows['total_price']; ?></td>
+                                <td><?= $rows['status']; ?></td>
 
-
-                                <td>
-                                    <a href="edit-registeredusers.php?id=<?= $rows['ID']; ?>" class="btn btn-success ">Edit</a>
-                                    <a href="edit-registeredusers.php?id=<?= $rows['ID']; ?>" class="btn btn-success ">Delete</a>
-                                </td>
+                                <td><a href="edit-registeredusers.php?id=<?= $rows['ID']; ?>" class="btn btn-success ">Edit</a></td>
                                 <td>
                                     <form action="code.php" method="POST">
                                         <button type="submit" name="delete_registered_btn" value="<?= $rows['ID']; ?>" class="btn btn-danger">Delete</button>
@@ -148,7 +212,7 @@ include('../PHP Database/dbcon.php');
                     ?>
 
                 </tbody>
-            </table>
+            </table> -->
             <!-- NO CONTENTS -->
             <!-- <div id="dropdown-menu">
                 <div class="border-inherit shadow-xl p-6 md:w-[30rem] lg:w-[40rem] rounded-xl cursor-pointer">
