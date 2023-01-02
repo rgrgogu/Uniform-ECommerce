@@ -1,3 +1,10 @@
+<?php
+require('../pages/PHP CLASSES/ClientInfo.php');
+session_start();
+
+$newClient = $_SESSION['object'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -155,19 +162,19 @@
                     </div>
                 </div>
                 <div id="two-selector" class="grid sm:grid-cols-1 gap-6">
-                    <form id="right-panel-dot" class="lg:col-span-2">
+                    <form id="right-panel-dot" class="lg:col-span-2" action="../PHP Database/client_edit.php" method="POST">
                         <div id="information">
                             <label class="font-bold">First Name</label>
-                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="First Name" />
+                            <input type="text" name="fname" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newClient->getFirstName(); ?>" />
                             <label class="font-bold">Last Name</label>
-                            <input type="text" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Last Name" />
+                            <input type="text" name="lname" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newClient->getLastName(); ?>" />
                             <label class="font-bold">Email Address</label>
-                            <input type="email" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Email" />
+                            <input type="email" name="email" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newClient->getEmail(); ?>" disabled />
                             <label class="font-bold">Contact Number</label>
-                            <input type="tel" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="Contact Number" />
+                            <input type="tel" name="contact" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newClient->getContact(); ?>" />
                             <label class="font-bold">Password</label>
-                            <input type="password" placeholder="First Name" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="First Name" />
-                            <input type="submit" value="Submit" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
+                            <input type="password" name="pass" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" value="<?php echo $newClient->getPassword(); ?>" />
+                            <input type="submit" name="btn_edit" value="Submit" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600 sm:mb-2" />
                         </div>
                     </form>
                 </div>
@@ -177,4 +184,5 @@
 
     <script src="./sidemenu.js"></script>
 </body>
+
 </html>
