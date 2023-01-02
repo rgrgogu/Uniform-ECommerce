@@ -37,6 +37,7 @@ $_SESSION['arr'] = $arr1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -146,7 +147,7 @@ $_SESSION['arr'] = $arr1;
                     <li class="">Dashboard / Product</li>
                 </ol>
 
-                 <?php include('../PHP Database/messages.php'); ?>
+                <?php include('../PHP Database/messages.php'); ?>
 
                 <div class="">
                     <div class="flex lg:justify-between sm:items-start lg:items-center sm:flex-col lg:flex-row">
@@ -154,21 +155,24 @@ $_SESSION['arr'] = $arr1;
                         <a href="add_product.php" id="create_new" class="bg-blue-500 p-4 rounded-lg text-white hover:bg-blue-700"> Add New Product</a>
                     </div>
                     <div class="pt-6 grid sm:grid-cols-1 lg:grid-cols-4 gap-6">
-                         <?php
+                        <?php
                         if (mysqli_num_rows($query_run) > 0) {
                             $table = 0;
                             while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
                                 <div id="potangina" class="bg-blue-300 p-5 rounded-lg">
                                     <div>
-                                        <img class='w-full lg:h-96 object-cover rounded-lg' src="../src/assets/Palda.jpg" />
+                                        <?php
+                                        echo "<img class='w-full lg:h-64 object-cover rounded-lg' src='../src/assets/" . $row['product_img'] . "' >";
+                                        ?>
                                     </div>
                                     <div class="">
-                                        <h5 class="font-bold text-2xl uppercase mt-2">Palda<!--<?php echo $row['product_name']; ?>--></h5>
+                                        <h5 class="font-bold text-2xl uppercase mt-2"><?php echo $row['product_name']; ?></h5>
                                         <p class="mb-2">Stocks:</p>
                                         <p class="mb-2">
                                             <?php
-                                            for ($i = 0; $i <= mysqli_num_rows($name_queryRun); $i++) {
+                                            echo mysqli_num_rows($name_queryRun);
+                                            for ($i = 0; $i < 5; $i++) {
                                                 echo $arr1[$table][$i][0] . " - " . $arr1[$table][$i][1] . " = " . $arr1[$table][$i][2] . "<br>";
                                             }
                                             $table++;
@@ -178,13 +182,13 @@ $_SESSION['arr'] = $arr1;
                                             <a href="update_product.php?product_id=<?php echo $row['product_id']; ?>">
                                                 <button class="bg-blue-500 text-white w-full p-4 rounded-lg mb-4">Update</button>
                                             </a>
-                                            <a href="update_product.php?product_id=<?php echo $row['product_id']; ?>">
+                                            <a href="delete_product.php?product_id=<?php echo $row['product_id']; ?>">
                                                 <button class="bg-red-500 text-white w-full p-4 rounded-lg">Delete</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                         <?php
                             }
                         }
