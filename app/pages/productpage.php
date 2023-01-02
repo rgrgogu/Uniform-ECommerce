@@ -1,3 +1,25 @@
+<?php
+    require('../../PHP Database/dbcon.php');
+    session_start();
+
+if (isset($_GET['product_id'])) {
+
+    $id = $_GET['product_id'];
+
+    $sql = "SELECT * FROM `product_list` WHERE `product_id`='$id'";
+
+    $result = $con->query($sql);
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+            $name = $row['product_'];
+            $name = $row['detergent_name'];
+            $id = $row['id_detergent'];
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

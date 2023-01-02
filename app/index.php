@@ -1,3 +1,10 @@
+<?php
+    require('../PHP Database/dbcon.php');
+    session_start();
+    $sql    = "SELECT * FROM uniform_db.product_list";
+    $result = $con->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,24 +152,36 @@
 
     <section class="sm:pt-1 lg:p-12">
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+              
             <div id="products">
                 <div id="uniform" class="mb-4">
+                
                     <a href="./pages/productpage.php">
-                        <img src="../src/assets/test1.jpeg" alt="Uniform" class="w-full rounded-xl" />
+                        <?php
+                        echo "<img class='w-full rounded-xl h-[100rem]' src='../src/assets/" . $row['product_img'] . "' >";
+                     ?>
                     </a>
                 </div>
                 <div id="productItems" class="flex items-start justify-between">
                     <div class="w-40 truncate">
-                        <h2 class="font-bold text-2xl">Uniform</h2>
-                        <p class="mb-2 mt-2">paragraph is paragraph</p>
+                        <h2 class="font-bold text-2xl">₱<?php echo $row['product_price'];?>.00</h2>
+                        <p class="mb-2 mt-2"><?php echo $row['product_name'];?></p>
                     </div>
                     <div id="cart">
-                        <a href="./pages/productpage.php">
-                            <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 text-sm" >Click Product</button>
+                        <a href="./pages/productpage.php?product_id=<?php echo $row['product_id']; ?>">
+                            <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 text-sm">Click Product</button>
                         </a>
                     </div>
                 </div>
             </div>
+            <?php
+                        }
+                    }
+                ?>
             <!-- dynamic content starts here -->
         </main>
     </section>
