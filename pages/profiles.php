@@ -21,7 +21,7 @@ $newAdmin = $_SESSION['object'];
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
-                <a href="./">
+                <a href="./order_management.php">
                     <img src="../src/assets/plm-logo--with-header.png" alt="">
                 </a>
             </div>
@@ -104,8 +104,8 @@ $newAdmin = $_SESSION['object'];
                 </a>
             </div>
             <div id="login" class="">
-                <a href="../login.php">
-                    <button class="text-white">Log In</button>
+                <a href="../index.php">
+                    <button class="text-white">Log Out</button>
                 </a>
             </div>
         </aside>

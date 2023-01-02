@@ -27,7 +27,7 @@ $query_run2 = mysqli_query($con, $sql2);
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
-                <a href="../">
+                <a href="#">
                     <img src="../src/assets/plm-logo--with-header.png" alt="">
                 </a>
             </div>
@@ -43,7 +43,7 @@ $query_run2 = mysqli_query($con, $sql2);
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
                 <div id="home" class="lg:mr-6">
-                    <a href="./profiles.php">
+                    <a href="#">
                         <button class="text-white">Home</button>
                     </a>
                 </div>
@@ -81,7 +81,7 @@ $query_run2 = mysqli_query($con, $sql2);
                 </div>
             </div>
             <div id="home" class="lg:mr-6">
-                <a href="./profiles.php">
+                <a href="#">
                     <button class="text-white">Home</button>
                 </a>
             </div>
@@ -91,8 +91,8 @@ $query_run2 = mysqli_query($con, $sql2);
                 </a>
             </div>
             <div id="login" class="">
-                <a href="../login.php">
-                    <button class="text-white">Log In</button>
+                <a href="../index.php">
+                    <button class="text-white">Log Out</button>
                 </a>
             </div>
         </aside>
@@ -117,7 +117,7 @@ $query_run2 = mysqli_query($con, $sql2);
     <main id="bulletin" class="sm:p-6 lg:p-12">
     <?php include('../PHP Database/messages.php'); ?>
         <aside class="flex items-center flex-col lg:container lg:mx-auto">
-            <table class="table-auto bg-white w-[80rem] border-collapse border border-slate-500 text-center">
+            <table class="table bg-white w-[80rem] border-collapse border border-slate-500 text-center">
                 <thead>
                     <tr>
                         <th>Order ID</th>

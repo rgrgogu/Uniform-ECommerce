@@ -52,7 +52,7 @@ $_SESSION['arr'] = $arr1;
     <header id="navbar-container">
         <nav class="lg:container lg:mx-auto flex items-center justify-between sm:p-4 lg:p-6">
             <div id="logo" class="sm:w-40 lg:w-60">
-                <a href="../">
+                <a href="./order_management.php">
                     <img src="../src/assets/plm-logo--with-header.png" alt="">
                 </a>
             </div>
@@ -116,7 +116,7 @@ $_SESSION['arr'] = $arr1;
                 </a>
             </div>
             <div id="login" class="">
-                <a href="../login.php">
+                <a href="../logout.php">
                     <button class="text-white">Logout</button>
                 </a>
             </div>
@@ -151,7 +151,7 @@ $_SESSION['arr'] = $arr1;
 
                 <div class="">
                     <div class="flex lg:justify-between sm:items-start lg:items-center sm:flex-col lg:flex-row">
-                        <h4 class="uppercase font-bold text-2xl">Products</h4>
+                        <h4 class="uppercase font-bold text-2xl mr-4">Products</h4>
                         <a href="add_product.php" id="create_new" class="bg-blue-500 p-4 rounded-lg text-white hover:bg-blue-700"> Add New Product</a>
                     </div>
                     <div class="pt-6 grid sm:grid-cols-1 lg:grid-cols-4 gap-6">
