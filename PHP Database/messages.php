@@ -25,6 +25,15 @@ if (isset($_SESSION['message'])) {
                 <button type="button" id="message-btn" class="material-symbols-outlined text-3xl" aria-label="close">cancel</button>
             </div>
         </div>
+
+        <script>
+            const message = document.querySelector("#message")
+
+            message.addEventListener("click", () => {
+                message.classList.toggle("sm:hidden")
+            })
+        </script>
+
         <script src="../app/sidemenu.js"></script>
     </body>
 <?php

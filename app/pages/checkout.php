@@ -10,6 +10,10 @@ if (isset($_POST['btn_checkout'])) {
     $contact = $_POST['contact'];
     $mop = $_POST['payment'];
 
+    if(strpos($mop, "GCASH")){
+        $mop = "GCASH";
+    }
+
     $newClient = $_SESSION['object'];
     $client_id = $newClient->getClientID();
 
@@ -40,8 +44,8 @@ if (isset($_POST['btn_checkout'])) {
     $qrcode = $path . $date_created . ".png";
     $qrimage = time() . ".png";
 
-    $sql3 = "INSERT INTO `order_list`(`client_id`, `item_id`, `total_price`, `status`, `qr_code`, `date_created`) 
-    VALUES ('$client_id','$last_id','$totalPrice','ORDER','$qrcode','$date_created')";
+    $sql3 = "INSERT INTO `order_list`(`client_id`, `item_id`, `total_price`, `status`, `mop`, `qr_code`, `date_created`) 
+    VALUES ('$client_id','$last_id','$totalPrice','ORDER', '$mop', '$qrcode','$date_created')";
     $query_run2 = mysqli_query($con, $sql3);
 
     $arr = array();
