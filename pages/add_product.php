@@ -1,30 +1,5 @@
 <?php
 session_start();
-include('../PHP Database/dbcon.php');
-if (isset($_POST['btn_add_prd'])) {
-
-  $name = $_POST['product_name'];
-  $category = $_POST['product_category'];
-  $stocks = $_POST['product_stocks'];
-  $price = $_POST['product_price'];
-  $prod_image = $_FILES['product_img']['name'];
-  $target = "../src/assets/". basename($prod_image);
-
-
-  $sql = "INSERT INTO uniform_db.product_list(`product_name`,`product_category`, `product_stocks`,`product_price`,`product_img`) VALUES ('$name','$category','$stocks','$price','$prod_image')";
-
-  mysqli_query($con, $sql);
-  if (move_uploaded_file($_FILES['product_img']['tmp_name'], $target)) {
-    $_SESSION['message'] = "Services Added Successfully";
-    header('Location: product_management.php');
-    exit(0);
-  } else {
-    $_SESSION['message'] = "Something Went Wrong";
-    header('Location: add_product.php');
-    exit(0);
-  }
-}
-$result = mysqli_query($con, "SELECT * FROM product_list");
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +9,7 @@ $result = mysqli_query($con, "SELECT * FROM product_list");
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="../dist/main.css" rel="stylesheet" />
-    <title>Forgot Password | E-Shop</title>
+    <title>Add Product | E-Shop</title>
 </head>
 
 <body>
@@ -45,13 +20,34 @@ $result = mysqli_query($con, "SELECT * FROM product_list");
                 <h2 class="sm:text-2xl lg:text-4xl font-bold mb-2">Add Product</h2>
                 <p class="sm:text-xs md:text-base">Enter details of product you wish to add</p>
             </header>
-            <form action="add_product.php" method="POST" id="switchTab" class="w-full"  enctype="multipart/form-data">
+            <form action="../PHP Database/product_add.php" method="POST" id="switchTab" class="w-full" enctype="multipart/form-data">
                 <div class="flex flex-col">
                     <input type="text" name="product_name" placeholder="Product Name" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
-                    <input type="text" name="product_category" placeholder="Product Category" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
-                    <input type="number" name="product_stocks" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
-                    <input type="number" name="product_price" placeholder="Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
-                    <input type="hidden" required name="size" value="1000000">
+                    <label for="">EXTRA-SMALL</label>
+                    <div class="flex flex-row">
+                        <input type="number" name="xs" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                        <input type="number" name="price_xs" placeholder="Extra Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    </div>
+                    <label for="">SMALL</label>
+                    <div class="flex flex-row">
+                        <input type="number" name="sm" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                        <input type="number" name="price_sm" placeholder="Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    </div>
+                    <label for="">MEDIUM</label>
+                    <div class="flex flex-row">
+                        <input type="number" name="md" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                        <input type="number" name="price_md" placeholder="Medium Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    </div>
+                    <label for="">LARGE</label>
+                    <div class="flex flex-row">
+                        <input type="number" name="lg" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                        <input type="number" name="price_lg" placeholder="Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    </div>
+                    <label for="">EXTRA-LARGE</label>
+                    <div class="flex flex-row">
+                        <input type="number" name="xl" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                        <input type="number" name="price_xl" placeholder="Extra Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    </div>
                     <input type="file" name="product_img" placeholder="Insert product image" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" required />
                 </div>
                 <div id="options" class="mt-3">

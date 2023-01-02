@@ -3,6 +3,37 @@ session_start();
 include('../PHP Database/dbcon.php');
 
 $newAdmin = $_SESSION['object'];
+
+$query = "SELECT * FROM uniform_db.product_list";
+$query_run = mysqli_query($con, $query);
+
+$arr = array();
+
+$name_query = "SELECT product_name FROM product_list";
+$name_queryRun = mysqli_query($con, $name_query);
+$data = mysqli_fetch_all($name_queryRun);
+
+for ($x = 0; $x < mysqli_num_rows($name_queryRun); $x++) {
+    array_push($arr, $data[$x][0]);
+}
+
+// print_r($arr);
+
+$query1 = "SELECT COUNT(product_id) FROM `product_list`;";
+$query_run1 = mysqli_query($con, $query1);
+$count = $query_run1->fetch_assoc()['COUNT(product_id)'];
+$arr1 = array();
+
+if ($count > 0) {
+    for ($x = 0; $x < $count; $x++) {
+        $pr_query = "SELECT `size_type`, `stocks`, `price` FROM `$arr[$x]`;";
+        $query_run2 = mysqli_query($con, $pr_query);
+
+        array_push($arr1, mysqli_fetch_all($query_run2));
+    }
+}
+
+$_SESSION['arr'] = $arr1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +81,7 @@ $newAdmin = $_SESSION['object'];
             </div>
             <div class="sm:hidden lg:flex lg:items-center">
                 <div id="home" class="lg:mr-6">
-                    <a href="./profiles.php">
+                    <a href="./order_management.php">
                         <button class="text-white">Home</button>
                     </a>
                 </div>
@@ -88,7 +119,7 @@ $newAdmin = $_SESSION['object'];
                 </div>
             </div>
             <div id="home" class="lg:mr-6">
-                <a href="./profiles.php">
+                <a href="./order_management.php">
                     <button class="text-white">Home</button>
                 </a>
             </div>
@@ -140,10 +171,8 @@ $newAdmin = $_SESSION['object'];
                     </div>
                     <div class="px-3 py-3 row" style="justify-content: center;">
                         <?php
-                        $query = "SELECT * FROM uniform_db.product_list";
-                        $query_run = mysqli_query($con, $query);
-
                         if (mysqli_num_rows($query_run) > 0) {
+                            $table = 0;
                             while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
 
@@ -152,10 +181,15 @@ $newAdmin = $_SESSION['object'];
                                     echo "<img class='card-img-top img  mt-3 rounded-3 ' src='../src/assets/" . $row['product_img'] . "' >";
                                     ?>
                                     <div class="card-body">
-                                        <h5 class="card-title font-weight-bold"><?php echo $row['product_name']; ?></h5>
-                                        <p class="card-text">Category: <?php echo $row['product_category']; ?> </p>
-                                        <p class="card-text">Stocks: <?php echo $row['product_stocks']; ?> </p>
-                                        <p class="card-text">Price: <?php echo $row['product_price']; ?></p>
+                                        <h5 class="card-title font-weight-bold uppercase"><?php echo $row['product_name']; ?></h5>
+                                        <p class="card-text">Stocks:</p>
+                                        <p class="card-text">
+                                            <?php
+                                            for ($i = 0; $i <= mysqli_num_rows($name_queryRun); $i++) {
+                                                echo $arr1[$table][$i][0] . " - " . $arr1[$table][$i][1] . " = " . $arr1[$table][$i][2] . "<br>";
+                                            }
+                                            $table++;
+                                            ?></p>
                                         <div class="col-12 mt-2 d-flex justify-content-center align-items-center pt-1 pb-1 row p-1" style="margin-left:-3px">
                                             <a class="btn btn-primary btn-marg" href="update_product.php?product_id=<?php echo $row['product_id']; ?>">Update</a>
                                         </div>
