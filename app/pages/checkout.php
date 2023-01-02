@@ -10,7 +10,7 @@ if (isset($_POST['btn_checkout'])) {
     $contact = $_POST['contact'];
     $mop = $_POST['payment'];
 
-    if(strpos($mop, "GCASH")){
+    if (str_contains($mop, "GCASH")) {
         $mop = "GCASH";
     }
 
@@ -28,7 +28,7 @@ if (isset($_POST['btn_checkout'])) {
     } else {
         $last_id = $order_id + 1;
     }
-    
+
     $sql1 = "SELECT * FROM cart_info WHERE client_id = '$client_id'";
     $query_run = mysqli_query($con, $sql1); // items
 
@@ -71,7 +71,7 @@ if (isset($_POST['btn_checkout'])) {
     $sql5 = "DELETE FROM cart_info WHERE client_id='$client_id'";
     $query_run4 = mysqli_query($con, $sql5);
 
-    for($x = 0; $x < count($arr); $x++){
+    for ($x = 0; $x < count($arr); $x++) {
         $item_name = $arr[$x][0];
         $item_size = $arr[$x][1];
         $item_qty = $arr[$x][2];
@@ -86,7 +86,7 @@ if (isset($_POST['btn_checkout'])) {
         $query_run6 = mysqli_query($con, $sql7);
     }
 
-    $qrtext = 
+    $qrtext =
         'Client Name: ' . $newClient->getFullName() . " " .
         'Address: ' . $address . " " .
         'Contact: ' . $contact . " "  .
@@ -173,12 +173,12 @@ if (isset($_POST['btn_checkout'])) {
                 </div>
             </div>
             <div id="page1" class="hover:text-purple-900">
-                <a href="../">
+                <a href="../index.php">
                     <button>Home</button>
                 </a>
             </div>
             <div id="page2" class="hover:text-purple-900">
-                <a href="">
+                <a href="../index.php">
                     <button>Order Online</button>
                 </a>
             </div>
@@ -198,7 +198,7 @@ if (isset($_POST['btn_checkout'])) {
                 </a>
             </div>
             <div id="login" class="hover:text-blue-700">
-                <a href="../../">
+                <a href="../../index.php">
                     <button>Log Out</button>
                 </a>
             </div>

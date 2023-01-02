@@ -1,5 +1,8 @@
 <?php
-    session_start();
+require('./PHP Database/dbcon.php');
+session_start();
+$sql    = "SELECT * FROM uniform_db.product_list";
+$result = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -83,12 +86,12 @@
     <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
         <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
             <div id="page1" class="hover:text-purple-900">
-                <a href="./">
+                <a href="#">
                     <button>Home</button>
                 </a>
             </div>
             <div id="page2" class="hover:text-purple-900">
-                <a href="">
+                <a href="#">
                     <button>Order Online</button>
                 </a>
             </div>
@@ -113,6 +116,37 @@
     <section class="sm:pt-1 lg:p-12">
         <?php include('./PHP Database/messages.php'); ?>
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <?php
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+
+                    <div id="products " class="bg-white p-4">
+                        <div id="uniform" class="mb-4">
+                            <?php
+                            echo "<img class='w-full rounded-xl object-cover h-[20rem]' src='./src/assets/" . $row['product_img'] . "' >";
+                            ?>
+                        </div>
+                        <div id="productItems" class="flex flex-col items-center ">
+                            <div class=" truncate">
+                                <h2 class="font-bold text-2xl"><?php echo strtoupper($row['product_name']); ?></h2>
+                            </div>
+                            <div id="cart ">
+                                <button class="bg-[#2E849F] p-4 px-12 rounded-xl text-white sm:p-2 md:p-3" onclick="redirect()">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- dynamic content starts here -->
+        </main>
+    </section>
+
+    <!-- <section class="sm:pt-1 lg:p-12">
+        <?php include('./PHP Database/messages.php'); ?>
+        <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <div id="products">
                 <div id="uniform" class="mb-4">
                     <a href="./pages/productpage.html">
@@ -130,8 +164,8 @@
                 </div>
             </div>
             <!-- dynamic content starts here -->
-        </main>
-    </section>
+    </main>
+    </section> -->
 
     <script src="./src/DOM.js"></script>
     <script src="./src/events.js"></script>

@@ -57,28 +57,26 @@ if (isset($_POST['item_add'])) {
     $query_run = mysqli_query($con, $query);
     $ans = mysqli_fetch_assoc($query_run)['IsEmpty'];
     $client_id = $newClient->getClientID();
-        
+
     // EMPTY
-    if($ans){
+    if ($ans) {
         $query1 = "INSERT INTO cart_info VALUES ('$id','$name','$size','$qty','$price','$img','$client_id')";
         $query_run1 = mysqli_query($con, $query1);
         $_SESSION['message'] = "Item has been added to your cart";
         header('Location: ../index.php');
-
     }
     // MAY VALUE
-    else{
+    else {
         $query_check = "SELECT CASE WHEN EXISTS(SELECT item_qty, item_price FROM cart_info WHERE item_id ='$id' AND item_selected = '$name' AND	size = '$size') THEN 0 ELSE 1 END AS IsEmpty";
         $query_check1 = mysqli_query($con, $query_check);
         $check_ans = mysqli_fetch_assoc($query_check1)['IsEmpty'];
 
-        if($check_ans){
+        if ($check_ans) {
             $query1 = "INSERT INTO cart_info VALUES ('$id','$name','$size','$qty','$price','$img', '$client_id')";
             $query_run1 = mysqli_query($con, $query1);
             $_SESSION['message'] = "Item has been added to your cart";
             header('Location: ../index.php');
-        }
-        else{
+        } else {
             $query1 = "SELECT item_qty, item_price FROM cart_info WHERE item_id ='$id' AND item_selected = '$name' AND	size = '$size' AND client_id = '$client_id'";
             $query_run1 = mysqli_query($con, $query1);
 
@@ -176,12 +174,12 @@ if (isset($_POST['item_add'])) {
                 </div>
             </div>
             <div id="page1" class="hover:text-purple-900">
-                <a href="../">
+                <a href="../index.php">
                     <button>Home</button>
                 </a>
             </div>
             <div id="page2" class="hover:text-purple-900">
-                <a href="">
+                <a href="../index.php">
                     <button>Order Online</button>
                 </a>
             </div>
@@ -201,7 +199,7 @@ if (isset($_POST['item_add'])) {
                 </a>
             </div>
             <div id="login" class="hover:text-blue-700">
-                <a href="../">
+                <a href="../../index.php">
                     <button>Log Out</button>
                 </a>
             </div>
@@ -210,12 +208,12 @@ if (isset($_POST['item_add'])) {
     <aside id="sidebar-desktop" class="flex items-end flex-col lg:container lg:mx-auto absolute top-20 right-14 sm:hidden z-20">
         <section class="bg-blue-500 p-4 text-white rounded-lg">
             <div id="page1" class="hover:text-purple-900">
-                <a href="./">
+                <a href="../index.php">
                     <button>Home</button>
                 </a>
             </div>
             <div id="page2" class="hover:text-purple-900">
-                <a href="">
+                <a href="../index.php">
                     <button>Order Online</button>
                 </a>
             </div>
@@ -235,7 +233,7 @@ if (isset($_POST['item_add'])) {
                 </a>
             </div>
             <div id="login" class="hover:text-blue-700">
-                <a href="../../">
+                <a href="../index.php">
                     <button>Log Out</button>
                 </a>
             </div>
@@ -249,119 +247,118 @@ if (isset($_POST['item_add'])) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                 ?>
-                        
-                            <div id="productCart-flexImage">
+
+                        <div id="productCart-flexImage">
+                            <?php
+                            echo "<img class='w-full rounded-xl object-cover h-[44rem]' src='../../src/assets/" . $row['product_img'] . "' >";
+                            ?>
+                        </div>
+                        <div id="productCart-details" class="flex justify-start flex-col">
+                            <div id="productCart-otherImage" class="mb-4 sm:grid sm:grid-cols-2 sm:gap-6">
                                 <?php
-                                echo "<img class='w-full rounded-xl object-cover h-[44rem]' src='../../src/assets/" . $row['product_img'] . "' >";
+                                echo "<img class='w-full  rounded-xl sm:mr-6 lg:mr-8' src='../../src/assets/" . $row['product_img'] . "' >";
+                                echo "<img class='w-full  rounded-xl sm:mr-6 lg:mr-8' src='../../src/assets/" . $row['product_img'] . "' >";
+
                                 ?>
+
                             </div>
-                            <div id="productCart-details" class="flex justify-start flex-col">
-                                <div id="productCart-otherImage" class="mb-4 sm:grid sm:grid-cols-2 sm:gap-6">
-                                    <?php
-                                    echo "<img class='w-full  rounded-xl sm:mr-6 lg:mr-8' src='../../src/assets/" . $row['product_img'] . "' >";
-                                    echo "<img class='w-full  rounded-xl sm:mr-6 lg:mr-8' src='../../src/assets/" . $row['product_img'] . "' >";
-
-                                    ?>
-
+                            <form method="POST">
+                                <span class="font-bold text-2xl mb-4">Quantity</span>
+                                <div id="quantity-ops" class="mb-4">
+                                    <input type="number" name="qty" placeholder="Enter Quantity" min="1" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" />
                                 </div>
-                                <form method="POST">
-                                    <span class="font-bold text-2xl mb-4">Quantity</span>
-                                    <div id="quantity-ops" class="mb-4">
-                                        <input type="number" name="qty" placeholder="Enter Quantity" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" />
-                                    </div>
-                                    <div id="importance">
-                                        <h2 class="font-bold mb-4 text-2xl">Sizes/Stocks</h2>
+                                <div id="importance">
+                                    <h2 class="font-bold mb-4 text-2xl">Sizes/Stocks</h2>
 
-                                        <input type="hidden" name="prd_id" value="<?php echo $id; ?>"/> 
-                                        <select id="sizes" name="option" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
-                                            <option value="" selected>-required-</option>
-                                            <option value="XS"><?php 
-                                            if($xs_stocks != 0){
-                                                echo "Extra-Small" . " - " . $xs_stocks . " pcs. = " . "₱" . $xs_price . ".00";
-                                            }
-                                            else{
-                                                echo
-                                                    '<script>
+                                    <input type="hidden" name="prd_id" value="<?php echo $id; ?>" />
+                                    <select id="sizes" name="option" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
+                                        <option value="" selected>-required-</option>
+                                        <option value="XS"><?php
+                                                            if ($xs_stocks != 0) {
+                                                                echo "Extra-Small" . " - " . $xs_stocks . " pcs. = " . "₱" . $xs_price . ".00";
+                                                            } else {
+                                                                echo
+                                                                '<script>
                                                         document.querySelectorAll("#sizes option").forEach(opt => {
                                                             if (opt.value == "XS") {
                                                                 opt.disabled = true;
                                                             }
                                                         }); 
                                                     </script>';
-                                            }
-                                            ?>
-                                            </option>
-                                            <option value="S"><?php
-                                            if ($sm_stocks != 0) {
-                                                echo "Small" . " - " . $sm_stocks . " pcs. = " . "₱" . $sm_price . ".00";
-                                            } else {
-                                                echo
-                                                    '<script>
+                                                            }
+                                                            ?>
+                                        </option>
+                                        <option value="S"><?php
+                                                            if ($sm_stocks != 0) {
+                                                                echo "Small" . " - " . $sm_stocks . " pcs. = " . "₱" . $sm_price . ".00";
+                                                            } else {
+                                                                echo
+                                                                '<script>
                                                         document.querySelectorAll("#sizes option").forEach(opt => {
                                                             if (opt.value == "S") {
                                                                 opt.disabled = true;
                                                             }
                                                         }); 
                                                     </script>';
-                                            }
-                                            ?></option>
-                                            <option value="M"><?php
-                                            if ($md_stocks != 0) {
-                                                echo "Medium" . " - " . $md_stocks . " pcs. = " . "₱" . $md_price . ".00";
-                                            } else {
-                                                echo
-                                                '<script>
+                                                            }
+                                                            ?></option>
+                                        <option value="M"><?php
+                                                            if ($md_stocks != 0) {
+                                                                echo "Medium" . " - " . $md_stocks . " pcs. = " . "₱" . $md_price . ".00";
+                                                            } else {
+                                                                echo
+                                                                '<script>
                                                     document.querySelectorAll("#sizes option").forEach(opt => {
                                                         if (opt.value == "M") {
                                                             opt.disabled = true;
                                                         }
                                                     }); 
                                                 </script>';
-                                            }                                            
-                                            ?></option>
-                                            <option value="L"><?php
-                                            if ($lg_stocks != 0) {
-                                                echo "Large" . " - " . $lg_stocks . " pcs. = " . "₱" . $lg_price . ".00";
-                                            } else {
-                                                echo
-                                                '<script>
+                                                            }
+                                                            ?></option>
+                                        <option value="L"><?php
+                                                            if ($lg_stocks != 0) {
+                                                                echo "Large" . " - " . $lg_stocks . " pcs. = " . "₱" . $lg_price . ".00";
+                                                            } else {
+                                                                echo
+                                                                '<script>
                                                     document.querySelectorAll("#sizes option").forEach(opt => {
                                                         if (opt.value == "L") {
                                                             opt.disabled = true;
                                                         }
                                                     }); 
                                                 </script>';
-                                            }
-                                            ?></option>
-                                            <option value="XL"><?php
-                                            if ($xl_stocks != 0) {
-                                                echo "Extra-Large" . " - " . $xl_stocks . " pcs. = " . "₱" . $xl_price . ".00";
-                                            } else {
-                                                echo
-                                                '<script>
+                                                            }
+                                                            ?></option>
+                                        <option value="XL"><?php
+                                                            if ($xl_stocks != 0) {
+                                                                echo "Extra-Large" . " - " . $xl_stocks . " pcs. = " . "₱" . $xl_price . ".00";
+                                                            } else {
+                                                                echo
+                                                                '<script>
                                                     document.querySelectorAll("#sizes option").forEach(opt => {
                                                         if (opt.value == "XL") {
                                                             opt.disabled = true;
                                                         }
                                                     }); 
                                                 </script>';
-                                            }
-                                            ?></option>
-                                        </select>
-                                    </div>
-                                    <div id="product-price">
-                                        <h2 class="font-bold text-3xl mb-4"></h2>
-                                        <button  type="submit" name="item_add" class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600" >Add to Cart</button>
-                                    </div>
-                                </form>
-                            </div>
-                 
+                                                            }
+                                                            ?></option>
+                                    </select>
+                                </div>
+                                <div id="product-price">
+                                    <h2 class="font-bold text-3xl mb-4"></h2>
+                                    <button type="submit" name="item_add" class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600">Add to Cart</button>
+                                </div>
+                            </form>
+                        </div>
+
             </aside>
-            <?php
+    <?php
                     }
                 }
-                    ?>
-            <!-- <aside id="page-recommendation">
+    ?>
+    <!-- <aside id="page-recommendation">
                 <div id="product-header" class="sm:text-2xl lg:text-4xl font-bold sm:mb-4 lg:mb-8">
                     <h2>You may also like</h2>
                 </div>

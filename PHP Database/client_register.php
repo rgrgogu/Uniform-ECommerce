@@ -18,7 +18,7 @@ if (isset($_POST['btn_register'])) {
     // echo $confirmPass . "<br>";
 
     if ($password == $confirmPass) {
-        $query = "SELECT * FROM client_info WHERE email = '$email' AND first_name='$fname' AND last_name='$lname'";
+        $query = "SELECT * FROM client_info WHERE email = '$email' OR first_name='$fname' AND last_name='$lname'";
         $query1 = "INSERT INTO `client_info`(`first_name`, `last_name`, `contact`, `email`, `password`) 
             VALUES ('$fname','$lname','$contact','$email','$password')";
 

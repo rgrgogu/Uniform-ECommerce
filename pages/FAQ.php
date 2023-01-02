@@ -29,12 +29,12 @@
             </div>
             <div class="sm:hidden lg:flex lg:items-center text-white">
                 <div id="login" class="lg:mr-6">
-                    <a href="../login.php">
+                    <a href="./login.php">
                         <button>Login</button>
                     </a>
                 </div>
                 <div id="register" class="lg:mr-6">
-                    <a href="../register.php">
+                    <a href="./register.php">
                         <button>Register</button>
                     </a>
                 </div>
@@ -62,12 +62,12 @@
                 </div>
             </div>
             <div id="register" class="sm:mb-2">
-                <a href="../register.php">
+                <a href="./register.php">
                     <button>Register</button>
                 </a>
             </div>
             <div id="login" class="">
-                <a href="../login.php">
+                <a href="./login.php">
                     <button>Log In</button>
                 </a>
             </div>
@@ -75,27 +75,27 @@
         <aside id="sidebar-menu" class="bg-[#2E849F] p-4 text-white sm:hidden lg:block">
             <section class="lg:container lg:mx-auto lg:flex lg:items-stretch lg:justify-around">
                 <div id="page1" class="hover:text-purple-900">
-                    <a href="../">
+                    <a href="../index.php">
                         <button>Home</button>
                     </a>
                 </div>
                 <div id="page2" class="hover:text-purple-900">
-                    <a href="../">
+                    <a href="../index.php">
                         <button>Order Online</button>
                     </a>
                 </div>
                 <div id="page3" class="hover:text-purple-900">
-                    <a href="../pages/contacts.php">
+                    <a href="./contacts.php">
                         <button>Contact Us</button>
                     </a>
                 </div>
                 <div id="page4" class="hover:text-purple-900">
-                    <a href="">
+                    <a href="#">
                         <button>FAQs</button>
                     </a>
                 </div>
                 <div id="page5" class="hover:text-purple-900">
-                    <a href="../pages/abouts.php">
+                    <a href="./abouts.php">
                         <button>About Us</button>
                     </a>
                 </div>

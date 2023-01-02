@@ -36,7 +36,7 @@
                     </a>
                 </div>
                 <div id="cart" class="lg:mr-4">
-                    <a href="./pages/cart.html" class="material-symbols-outlined text-3xl cursor-pointer">
+                    <a href="./cart.php" class="material-symbols-outlined text-3xl cursor-pointer">
                         shopping_bag
                     </a>
                 </div>
@@ -76,12 +76,12 @@
                 </div>
             </div>
             <div id="page1" class="hover:text-purple-900">
-                <a href="../">
+                <a href="../index.php">
                     <button>Home</button>
                 </a>
             </div>
             <div id="page2" class="hover:text-purple-900">
-                <a href="">
+                <a href="../index.php">
                     <button>Order Online</button>
                 </a>
             </div>
@@ -91,7 +91,7 @@
                 </a>
             </div>
             <div id="page4" class="hover:text-purple-900">
-                <a href="faqs.php">
+                <a href="./faqs.php">
                     <button>FAQs</button>
                 </a>
             </div>
@@ -101,7 +101,7 @@
                 </a>
             </div>
             <div id="login" class="hover:text-blue-700">
-                <a href="../">
+                <a href="../../index.php">
                     <button>Log Out</button>
                 </a>
             </div>
@@ -110,12 +110,12 @@
     <aside id="sidebar-desktop" class="flex items-end flex-col lg:container lg:mx-auto absolute top-20 right-14 z-20 sm:hidden">
         <section class="bg-blue-500 p-4 text-white rounded-lg">
             <div id="page1" class="hover:text-purple-900">
-                <a href="../">
+                <a href=".../index.php">
                     <button>Home</button>
                 </a>
             </div>
             <div id="page2" class="hover:text-purple-900">
-                <a href="">
+                <a href="../index.php">
                     <button>Order Online</button>
                 </a>
             </div>
@@ -130,12 +130,12 @@
                 </a>
             </div>
             <div id="page5" class="hover:text-purple-900">
-                <a href="abouts.php">
+                <a href="./abouts.php">
                     <button>About Us</button>
                 </a>
             </div>
             <div id="login" class="hover:text-blue-700">
-                <a href="../">
+                <a href="../../index.php">
                     <button>Log Out</button>
                 </a>
             </div>
