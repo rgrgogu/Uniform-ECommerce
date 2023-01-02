@@ -13,44 +13,75 @@ session_start();
 </head>
 
 <body>
-    <main class="bg-gradient-to-t from-white to-[#2E849F] h-screen w-screen flex items-center justify-center">
-        <section class="bg-[#8ABFD0] sm:h-screen sm:w-screen sm:p-6 lg:p-12 sm:rounded-none lg:rounded-xl lg:w-fit lg:h-fit">
+    <main class="bg-gradient-to-t from-white to-[#2E849F] flex items-center justify-center h-screen">
+        <section class="bg-[#8ABFD0] sm:h-screen sm:w-screen lg:h-fit lg:w-fit sm:p-6 lg:p-12 sm:rounded-none lg:rounded-xl ">
             <?php include('../PHP Database/messages.php'); ?>
-            <header class="mb-4">
-                <h2 class="sm:text-2xl lg:text-4xl font-bold mb-2">Add Product</h2>
-                <p class="sm:text-xs md:text-base">Enter details of product you wish to add</p>
-            </header>
-            <form action="../PHP Database/product_add.php" method="POST" id="switchTab" class="w-full" enctype="multipart/form-data">
-                <div class="flex flex-col">
-                    <input type="text" name="product_name" placeholder="Product Name" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
-                    <label for="">EXTRA-SMALL</label>
-                    <div class="flex flex-row">
-                        <input type="number" name="xs" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                        <input type="number" name="price_xs" placeholder="Extra Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+            <form action="../PHP Database/product_add.php" method="POST" id="switchTab" class="" enctype="multipart/form-data">
+                <header class="mb-4">
+                    <div id="add-product" class="mb-2">
+                        <h2 class="sm:text-2xl lg:text-4xl font-bold mb-2">Add Product</h2>
+                        <p class="sm:text-xs md:text-base">Enter details of product you wish to add</p>
                     </div>
-                    <label for="">SMALL</label>
-                    <div class="flex flex-row">
-                        <input type="number" name="sm" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                        <input type="number" name="price_sm" placeholder="Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    <div id="">
+                        <input type="text" name="product_name" placeholder="Product Name" class="border border-black p-3 px-4 rounded-lg placeholder-shown:border-blue-600 w-full" autocomplete="off" />
                     </div>
-                    <label for="">MEDIUM</label>
-                    <div class="flex flex-row">
-                        <input type="number" name="md" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                        <input type="number" name="price_md" placeholder="Medium Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                </header>
+                <div class="grid sm:grid-cols-1 lg:grid-cols-3 w-[70rem]" id="parent">
+                    <div class="">
+                        <div>
+                            <label for="">EXTRA-SMALL</label>
+                        </div>
+                        <div class="">
+                            <input type="number" name="xs" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                            <input type="number" name="price_xs" placeholder="Extra Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
+                        </div>
                     </div>
-                    <label for="">LARGE</label>
-                    <div class="flex flex-row">
-                        <input type="number" name="lg" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                        <input type="number" name="price_lg" placeholder="Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    <div>
+                        <div>
+                            <label for="">SMALL</label>
+                        </div>
+                        <div class="">
+                            <input type="number" name="sm" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" />
+                            <input type="number" name="price_sm" placeholder="Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
+                        </div>
                     </div>
-                    <label for="">EXTRA-LARGE</label>
-                    <div class="flex flex-row">
-                        <input type="number" name="xl" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                        <input type="number" name="price_xl" placeholder="Extra Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                    <div>
+                        <div>
+                            <label for="">MEDIUM</label>
+                        </div>
+                        <div class="">
+                            <input type="number" name="md" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4 w-full" autocomplete="off" required />
+                            <input type="number" name="price_md" placeholder="Medium Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" autocomplete="off" required />
+                        </div>
                     </div>
-                    <input type="file" name="product_img" placeholder="Insert product image" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" required />
+                    <div>
+                        <div>
+                            <label for="">LARGE</label>
+                        </div>
+                        <div class="">
+                            <input type="number" name="lg" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                            <input type="number" name="price_lg" placeholder="Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="">EXTRA-LARGE</label>
+                        </div>
+                        <div class="">
+                            <input type="number" name="xl" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                            <input type="number" name="price_xl" placeholder="Extra Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="">IMAGE</label>
+                        </div>
+                        <div>
+                            <input type="file" name="product_img" placeholder="Insert product image" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" required />
+                        </div>
+                    </div>
                 </div>
-                <div id="options" class="mt-3">
+                <div id="options" class="mt-3" aria-disabled="true">
                     <input type="submit" name="btn_add_prd" value="Continue" class="bg-[#2E849F] w-full p-3 rounded-lg text-white cursor-pointer font-bold hover:bg-blue-600" />
                 </div>
             </form>
