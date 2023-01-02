@@ -25,7 +25,7 @@ if (isset($_SESSION['message'])) {
         </div>
     </body>
     </html>
-<!-- <?php
+<?php
     unset($_SESSION['message']);
 }
-?> -->
+?>
