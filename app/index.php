@@ -1,8 +1,8 @@
 <?php
-    require('../PHP Database/dbcon.php');
-    session_start();
-    $sql    = "SELECT * FROM uniform_db.product_list";
-    $result = $con->query($sql);
+require('../PHP Database/dbcon.php');
+session_start();
+$sql    = "SELECT * FROM uniform_db.product_list";
+$result = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="../dist/main.css" rel="stylesheet" />
-    <title>Uniform - buy now</title>
+    <title>Home | E-Shop</title>
 </head>
 
 <body class="bg-gradient-to-t from-white to-[#2E849F] h-screen">
@@ -151,37 +151,37 @@
     </aside>
 
     <section class="sm:pt-1 lg:p-12">
-    <?php include('../PHP Database/messages.php'); ?>
+        <?php include('../PHP Database/messages.php'); ?>
         <main class="lg:container lg:mx-auto grid sm:grid-cols-1 sm:p-4 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <?php
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-              
-            <div id="products " class="bg-white p-4">
-                <div id="uniform" class="mb-4">
-                
-                   
-                        <?php
-                        echo "<img class='w-full rounded-xl object-cover h-[20rem]' src='../src/assets/" . $row['product_img'] . "' >";
-                     ?>
-                
-                </div>
-                <div id="productItems" class="flex flex-col items-center ">
-                    <div class=" truncate">
-                        <h2 class="font-bold text-2xl"><?php echo strtoupper($row['product_name']);?></h2>
-                    </div>
-                    <div id="cart ">
-                        <a href="./pages/productpage.php?product_id=<?php echo $row['product_id']; ?>">
-                            <button class="mt-3 bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 text-sm">Click Product</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
             <?php
-                        }
-                    }
-                ?>
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+
+                    <div id="products " class="bg-white p-4">
+                        <div id="uniform" class="mb-4">
+
+
+                            <?php
+                            echo "<img class='w-full rounded-xl object-cover h-[20rem]' src='../src/assets/" . $row['product_img'] . "' >";
+                            ?>
+
+                        </div>
+                        <div id="productItems" class="flex flex-col items-center ">
+                            <div class=" truncate">
+                                <h2 class="font-bold text-2xl"><?php echo strtoupper($row['product_name']); ?></h2>
+                            </div>
+                            <div id="cart ">
+                                <a href="./pages/productpage.php?product_id=<?php echo $row['product_id']; ?>">
+                                    <button class="mt-3 bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 text-sm">Click Product</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
             <!-- dynamic content starts here -->
         </main>
     </section>

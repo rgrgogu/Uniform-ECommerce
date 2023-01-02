@@ -15,7 +15,7 @@ $result = $con->query($sql);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="./dist/main.css" rel="stylesheet" />
-    <title>Uniform | Shop</title>
+    <title>Home | E-Shop</title>
 </head>
 
 <body class="bg-gradient-to-t from-white to-[#2E849F]">

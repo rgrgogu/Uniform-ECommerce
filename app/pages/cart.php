@@ -26,7 +26,7 @@ $totalPrice = mysqli_fetch_assoc($query_run1)['SUM(item_price)'];
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="../../dist/main.css" rel="stylesheet" />
-    <title>Uniform - Cart Section</title>
+    <title>Cart | E-Shop</title>
 </head>
 
 <body class="bg-gradient-to-t from-white to-[#2E849F]">
@@ -190,7 +190,8 @@ $totalPrice = mysqli_fetch_assoc($query_run1)['SUM(item_price)'];
                 <aside id="right-panel">
                     <form action="checkout.php" method="POST">
                         <div class="bg-[#2E849F] text-white p-4 rounded-lg mb-4">
-                            <span>Total Price: ₱ <?php if($totalPrice == null) echo "0"; else echo $totalPrice; ?>.00</span>
+                            <span>Total Price: ₱ <?php if ($totalPrice == null) echo "0";
+                                                    else echo $totalPrice; ?>.00</span>
                         </div>
                         <div id="delivery-info">
 
