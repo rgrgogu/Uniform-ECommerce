@@ -95,6 +95,7 @@ if (isset($_GET['product_id'])) {
                     <?php include('../PHP Database/messages.php'); ?>
                     <header class="mb-4">
                         <h2 class="sm:text-2xl lg:text-4xl font-bold mb-2">Update <?php echo strtoupper($name) ?></h2>
+                        
                         <p class="sm:text-xs md:text-base">Enter details of product you wish to change</p>
                     </header>
                     <form action="update_product.php" method="POST" id="switchTab" class="w-full" enctype="multipart/form-data">

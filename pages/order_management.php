@@ -1,5 +1,14 @@
 <?php
 include('../PHP Database/dbcon.php');
+session_start();
+
+$sql = "SELECT * FROM order_list";
+$query_run = mysqli_query($con, $sql);
+$sql1 = "SELECT * FROM client_info";
+$query_run1 = mysqli_query($con, $sql1);
+$sql2 = "SELECT * FROM order_items";
+$query_run2 = mysqli_query($con, $sql2);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,43 +115,57 @@ include('../PHP Database/dbcon.php');
     </header>
 
     <main id="bulletin" class="sm:p-6 lg:p-12">
+    <?php include('../PHP Database/messages.php'); ?>
         <aside class="flex items-center flex-col lg:container lg:mx-auto">
             <table class="table-auto bg-white w-[80rem] border-collapse border border-slate-500">
                 <thead>
                     <tr>
                         <th>Order ID</th>
                         <th>Customer</th>
+
                         <th>Items/Bought</th>
                         <th>Payment Method</th>
                         <th>Price</th>
                         <th>Status</th>
+                        <th>Order Date</th>
+                        <th>Modify</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM uniform_db.order_list";
+                    $query = "SELECT order_id, client_info.last_name, order_items.item_name, total_price, order_items.date_created, mop, status FROM `order_list`
+                    INNER JOIN  client_info ON (order_list.client_id = client_info.client_id)
+                    INNER JOIN  order_items ON (order_list.item_id = order_items.item_id)
+                    ORDER BY order_id;";
+
                     $query_run = mysqli_query($con, $query);
 
                     if (mysqli_num_rows($query_run) > 0) {
                         foreach ($query_run as $rows) {
                     ?>
-                            <tr>
-                                <td><?= $rows['order_id']; ?></td>
-                                <td><?= $rows['firstname']; ?></td>
-                                <td><?= $rows['product_name']; ?></td>
-                                <td><?= $rows['mod_type']; ?></td>
-                                <td><?= $rows['total_price']; ?></td>
-                                <td><?= $rows['price']; ?></td>
-                                <td>
-                                    <a href="edit-registeredusers.php?id=<?= $rows['ID']; ?>" class="btn btn-success ">Modify</a>
-                                </td>
-                                <td>
-                                    <form action="code.php" method="POST">
-                                        <button type="submit" name="delete_registered_btn" value="<?= $rows['ID']; ?>" class="btn btn-danger">Delete</button>
-                                    </form>
+                            <form action="../PHP Database/update_order.php" method="POST">
+                                <tr>
+                                    <td><?= $rows['order_id']; ?></td>
+                                    <td><?= $rows['last_name']; ?></td>
+                                    <td><?= $rows['item_name']; ?></td>
+                                    <td><?= $rows['mop']; ?></td>
+                                    <td>₱<?= $rows['total_price']; ?>.00</td>
+                                    <td>
+                                        <select name="status" required class="form-control bg-dark text-dark">
+                                            <option value="">--Select Role--</option>
+                                            <option value="1" <?= $rows['status'] == 'ORDER' ? 'selected' : '' ?>>ORDER</option>
+                                            <option value="0" <?= $rows['status'] == 'CHECKED-OUT' ? 'selected' : '' ?>>CHECKED-OUT</option>
+                                        </select>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td><?= $rows['date_created']; ?></td>
+                                    <td>
+                                        <input type="hidden" name="order_id" value="<?= $rows['order_id']; ?>">
+                                        <button type="submit" class="btn btn-success" name="update">Update</button>
+
+                                    </td>
+                                </tr>
+                            </form>
                         <?php
                         }
                     } else {
