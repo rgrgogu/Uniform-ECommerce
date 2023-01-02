@@ -3,18 +3,30 @@ if (isset($_SESSION['message'])) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+        <link href="../dist/main.css" rel="stylesheet" />
     </head>
 
     <body>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Hey User</strong> <?= $_SESSION['message'] ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div id="message" class="bg-yellow-200 p-4 flex items-center mb-4 justify-between rounded-lg" role="alert">
+            <div id="header" class="inline-block">
+                <h2 class="font-bold text-2xl">Hey User</h2>
+                <span>
+                    <?= $_SESSION['message'] ?>
+                </span>
+            </div>
+            <div id="">
+                <button type="button" id="message-btn" class="material-symbols-outlined text-3xl" aria-label="close">cancel</button>
+            </div>
         </div>
+        <script src="../app/sidemenu.js"></script>
     </body>
-    </html>
 <?php
     unset($_SESSION['message']);
 }

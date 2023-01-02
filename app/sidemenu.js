@@ -7,6 +7,8 @@ const sidebarMobile = document.querySelector("#sidebar"),
   dropdown = document.querySelector("#dropdown"),
   dropdown2 = document.querySelector("#dropdown2"),
   dropContent2 = document.querySelector("#drop-content2"),
+  message = document.querySelector("#message"),
+  messageBtn = document.querySelector("#message-btn"),
   bodyScroll = document.body;
 
 sidebarMenu1.addEventListener("click", () => {
@@ -28,6 +30,10 @@ dropdown2.addEventListener("click", () => {
   dropdown2.classList.toggle("mb-4");
 });
 
+messageBtn.addEventListener("click", () => {
+  message.classList.toggle("sm:hidden")
+});
+
 function addCart(){
   alert("Item added 🥰");
 };
@@ -36,3 +42,4 @@ const checkout = () => {
   alert("Checkout successfully! 🥰") ||
     window.location.replace("checkout.html");
 };
+

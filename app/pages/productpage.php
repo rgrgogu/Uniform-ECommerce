@@ -264,7 +264,7 @@ if (isset($_POST['item_add'])) {
                                     ?>
 
                                 </div>
-                                <form  method="POST">
+                                <form method="POST">
                                     <span class="font-bold text-2xl mb-4">Quantity</span>
                                     <div id="quantity-ops" class="mb-4">
                                         <input type="number" name="qty" placeholder="Enter Quantity" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" />
@@ -273,14 +273,80 @@ if (isset($_POST['item_add'])) {
                                         <h2 class="font-bold mb-4 text-2xl">Sizes/Stocks</h2>
 
                                         <input type="hidden" name="prd_id" value="<?php echo $id; ?>"/> 
-                                        <select id="cars" name="option" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
-
+                                        <select id="sizes" name="option" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
                                             <option value="" selected>-required-</option>
-                                            <option value="XS"><?php echo "Extra-Small" . " - " . $xs_stocks . " pcs. = " . "₱" . $xs_price; ?>.00</option>
-                                            <option value="S"><?php echo "Small" . " - " . $sm_stocks . " pcs. = " . "₱" . $sm_price; ?>.00</option>
-                                            <option value="M"><?php echo "Medium" . " - " . $md_stocks . " pcs. = " . "₱" . $md_price; ?>.00</option>
-                                            <option value="L"><?php echo "Large" . " - " . $lg_stocks . " pcs. = " . "₱" . $lg_price; ?>.00</option>
-                                            <option value="XL"><?php echo "Extra-Large" . " - " . $xl_stocks . " pcs. = " . "₱" . $xl_price; ?>.00</option>
+                                            <option value="XS"><?php 
+                                            if($xs_stocks != 0){
+                                                echo "Extra-Small" . " - " . $xs_stocks . " pcs. = " . "₱" . $xs_price . ".00";
+                                            }
+                                            else{
+                                                echo
+                                                    '<script>
+                                                        document.querySelectorAll("#sizes option").forEach(opt => {
+                                                            if (opt.value == "XS") {
+                                                                opt.disabled = true;
+                                                            }
+                                                        }); 
+                                                    </script>';
+                                            }
+                                            ?>
+                                            </option>
+                                            <option value="S"><?php
+                                            if ($sm_stocks != 0) {
+                                                echo "Small" . " - " . $sm_stocks . " pcs. = " . "₱" . $sm_price . ".00";
+                                            } else {
+                                                echo
+                                                    '<script>
+                                                        document.querySelectorAll("#sizes option").forEach(opt => {
+                                                            if (opt.value == "S") {
+                                                                opt.disabled = true;
+                                                            }
+                                                        }); 
+                                                    </script>';
+                                            }
+                                            ?></option>
+                                            <option value="M"><?php
+                                            if ($md_stocks != 0) {
+                                                echo "Medium" . " - " . $md_stocks . " pcs. = " . "₱" . $md_price . ".00";
+                                            } else {
+                                                echo
+                                                '<script>
+                                                    document.querySelectorAll("#sizes option").forEach(opt => {
+                                                        if (opt.value == "M") {
+                                                            opt.disabled = true;
+                                                        }
+                                                    }); 
+                                                </script>';
+                                            }                                            
+                                            ?></option>
+                                            <option value="L"><?php
+                                            if ($lg_stocks != 0) {
+                                                echo "Large" . " - " . $lg_stocks . " pcs. = " . "₱" . $lg_price . ".00";
+                                            } else {
+                                                echo
+                                                '<script>
+                                                    document.querySelectorAll("#sizes option").forEach(opt => {
+                                                        if (opt.value == "L") {
+                                                            opt.disabled = true;
+                                                        }
+                                                    }); 
+                                                </script>';
+                                            }
+                                            ?></option>
+                                            <option value="XL"><?php
+                                            if ($xl_stocks != 0) {
+                                                echo "Extra-Large" . " - " . $xl_stocks . " pcs. = " . "₱" . $xl_price . ".00";
+                                            } else {
+                                                echo
+                                                '<script>
+                                                    document.querySelectorAll("#sizes option").forEach(opt => {
+                                                        if (opt.value == "XL") {
+                                                            opt.disabled = true;
+                                                        }
+                                                    }); 
+                                                </script>';
+                                            }
+                                            ?></option>
                                         </select>
                                     </div>
                                     <div id="product-price">
@@ -295,7 +361,7 @@ if (isset($_POST['item_add'])) {
                     }
                 }
                     ?>
-            <aside id="page-recommendation">
+            <!-- <aside id="page-recommendation">
                 <div id="product-header" class="sm:text-2xl lg:text-4xl font-bold sm:mb-4 lg:mb-8">
                     <h2>You may also like</h2>
                 </div>
@@ -316,10 +382,9 @@ if (isset($_POST['item_add'])) {
                             </div>
                         </div>
                     </div>
-                    <!-- stored as array -->
                 </div>
 
-            </aside>
+            </aside> -->
         </main>
     </section>
 

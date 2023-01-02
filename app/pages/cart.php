@@ -6,7 +6,7 @@ session_start();
 $newClient = $_SESSION['object'];
 $client_id = $newClient->getClientID();
 $contact = $newClient->getContact();
-$sql = "SELECT * FROM cart_info";
+$sql = "SELECT * FROM cart_info WHERE client_id = '$client_id'";
 $query_run = mysqli_query($con, $sql);
 
 $sql1 = "SELECT SUM(item_price) FROM cart_info WHERE client_id = '$client_id'";

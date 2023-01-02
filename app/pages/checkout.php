@@ -1,19 +1,100 @@
 <?php
 require('../../pages/PHP CLASSES/ClientInfo.php');
 require('../../PHP Database/dbcon.php');
+require_once('../../phpqrcode/qrlib.php');
+
 session_start();
 
 if (isset($_POST['btn_checkout'])) {
-
     $address = $_POST['address'];
     $contact = $_POST['contact'];
     $mop = $_POST['payment'];
+
+    $newClient = $_SESSION['object'];
+    $client_id = $newClient->getClientID();
+
+    $sql = "SELECT MAX(order_id) FROM order_list";
+    $checkQuery = mysqli_query($con, $sql);
+    $order_id = $checkQuery->fetch_assoc()['MAX(order_id)'];
+
+    $last_id = 0;
+
+    if (is_null($order_id)) {
+        $last_id = 1;
+    } else {
+        $last_id = $order_id + 1;
+    }
+    
+    $sql1 = "SELECT * FROM cart_info WHERE client_id = '$client_id'";
+    $query_run = mysqli_query($con, $sql1); // items
+
+    $sql2 = "SELECT SUM(item_price) FROM cart_info WHERE client_id = '$client_id'";
+    $query_run1 = mysqli_query($con, $sql2);
+
+    $totalPrice = mysqli_fetch_assoc($query_run1)['SUM(item_price)']; // total price
+
+    $t = time();
+    $date_created = date("Ymd", $t) . $t;
+
+    $path = './images/';
+    $qrcode = $path . $date_created . ".png";
+    $qrimage = time() . ".png";
+
+    $sql3 = "INSERT INTO `order_list`(`client_id`, `item_id`, `total_price`, `status`, `qr_code`, `date_created`) 
+    VALUES ('$client_id','$last_id','$totalPrice','ORDER','$qrcode','$date_created')";
+    $query_run2 = mysqli_query($con, $sql3);
+
+    $arr = array();
+    $str = "";
+
+    while ($row = mysqli_fetch_assoc($query_run)) {
+        $item_name = $row['item_selected'];
+        $item_size = $row['size'];
+        $item_qty = $row['item_qty'];
+        $item_price = $row['item_price'];
+
+        $ary = array($item_name, $item_size, $item_qty);
+        array_push($arr, $ary);
+
+        $str .= '    ' . $item_name . " - " . $item_size . " (" . $item_qty . " pcs. ) = " . $item_price  . "<br>";
+
+        $sql4 = "INSERT INTO `order_items`(`item_id`, `item_name`, `item_size`, `item_qty`, `date_created`) 
+        VALUES ('$last_id','$item_name','$item_size', '$item_qty', '$date_created')";
+
+        $query_run3 = mysqli_query($con, $sql4);
+    }
+
+    $sql5 = "DELETE FROM cart_info WHERE client_id='$client_id'";
+    $query_run4 = mysqli_query($con, $sql5);
+
+    for($x = 0; $x < count($arr); $x++){
+        $item_name = $arr[$x][0];
+        $item_size = $arr[$x][1];
+        $item_qty = $arr[$x][2];
+
+        $sql6 = "SELECT stocks FROM $item_name WHERE size_type='$item_size'";
+        $query_run5 = mysqli_query($con, $sql6);
+
+        $stocks = mysqli_fetch_assoc($query_run5)['stocks'];
+        $diff = $stocks - $item_qty;
+
+        $sql7 = "UPDATE $item_name SET stocks = '$diff' WHERE size_type = '$item_size'";
+        $query_run6 = mysqli_query($con, $sql7);
+    }
+
+    $qrtext = 
+        'Client Name: ' . $newClient->getFullName() . " " .
+        'Address: ' . $address . " " .
+        'Contact: ' . $contact . " "  .
+        'Items: ' . $str . " " .
+        'Total Price: ' . $totalPrice . ".00" . " " .
+        'Mode of Payment: ' . $mop . " ";
+
+    QRcode::png($qrtext, $qrcode, 'H', 4, 4);
+    // QRcode::png("Hi", $qrcode, 'H', 4, 4);
 }
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -158,7 +239,7 @@ if (isset($_POST['btn_checkout'])) {
         <aside class="lg:container lg:mx-auto px-6">
             <header id="cart-header" class="sm:mb-2 lg:mb-4">
                 <h2 class="font-bold sm:text-2xl lg:text-4xl mb-2">Thank you for your purchase</h2>
-    
+
             </header>
             <main class="grid sm:grid-cols-1 lg:grid-cols-2 lg:gap-12">
 
@@ -181,7 +262,8 @@ if (isset($_POST['btn_checkout'])) {
                         </div>
                         <div id="submit-now" class="inline-flex">
                             <div class="border border-black mr-4">
-                                <img src="../../src/assets/qrcode-sample.jpeg" alt="qrcode" class="sm:w-36 lg:w-48">
+                                <?php echo "<img src='" . $qrcode . "'>"; ?>
+                                <!-- <img src="../../src/assets/qrcode-sample.jpeg" alt="qrcode" class="sm:w-36 lg:w-48"> -->
                             </div>
                             <div class="sm:text-sm md:text-xl lg:text-2xl">
                                 <span>Save this QR code for receipt purposes!</span>
