@@ -163,7 +163,7 @@ $result = $con->query($sql);
                     </div>
                 </div>
             </div>
-            <!-- dynamic content starts here -->
+            dynamic content starts here
     </main>
     </section> -->
 
