@@ -104,28 +104,28 @@ if (isset($_GET['product_id'])) {
                             <input type="hidden" name="product_name" value="<?php echo strtoupper($name) ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                             <label for="">EXTRA-SMALL</label>
                             <div class="flex flex-row">
-                                <input type="number" name="xs" placeholder="No. of XS Stocks" value="<?php echo $stock_xs ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                                <input type="number" name="price_xs" placeholder="Extra Small Price" value="<?php echo $xs_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                                <input type="number" min="1" name="xs" placeholder="No. of XS Stocks" value="<?php echo $stock_xs ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                                <input type="number" min="1" name="price_xs" placeholder="Extra Small Price" value="<?php echo $xs_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                             </div>
                             <label for="">SMALL</label>
                             <div class="flex flex-row">
-                                <input type="number" name="sm" placeholder="No. of SM Stocks" value="<?php echo $stock_sm ?>" class=" border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                                <input type="number" name="price_sm" placeholder="Small Price" value="<?php echo $sm_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                                <input type="number" min="1" name="sm" placeholder="No. of SM Stocks" value="<?php echo $stock_sm ?>" class=" border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                                <input type="number" min="1" name="price_sm" placeholder="Small Price" value="<?php echo $sm_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                             </div>
                             <label for="">MEDIUM</label>
                             <div class="flex flex-row">
-                                <input type="number" name="md" placeholder="No. of MD Stocks" value="<?php echo $stock_md ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                                <input type="number" name="price_md" placeholder="Medium Price" value="<?php echo $md_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                                <input type="number" min="1" name="md" placeholder="No. of MD Stocks" value="<?php echo $stock_md ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                                <input type="number" min="1" name="price_md" placeholder="Medium Price" value="<?php echo $md_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                             </div>
                             <label for="">LARGE</label>
                             <div class="flex flex-row">
-                                <input type="number" name="lg" placeholder="No. of LG Stocks" value="<?php echo $stock_lg ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                                <input type="number" name="price_lg" placeholder="Large Price" value="<?php echo $lg_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                                <input type="number" min="1" name="lg" placeholder="No. of LG Stocks" value="<?php echo $stock_lg ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                                <input type="number" min="1" name="price_lg" placeholder="Large Price" value="<?php echo $lg_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                             </div>
                             <label for="">EXTRA-LARGE</label>
                             <div class="flex flex-row">
-                                <input type="number" name="xl" placeholder="No. of XL Stocks"  value="<?php echo $stock_xl ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                                <input type="number" name="price_xl" placeholder="Extra Large Price" value="<?php echo $xl_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                                <input type="number" min="1" name="xl" placeholder="No. of XL Stocks"  value="<?php echo $stock_xl ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                                <input type="number" min="1" name="price_xl" placeholder="Extra Large Price" value="<?php echo $xl_price ?>" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                             </div>
                         </div>
                         <div id="options" class="mt-3">

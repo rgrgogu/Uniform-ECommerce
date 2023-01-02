@@ -117,7 +117,7 @@ $query_run2 = mysqli_query($con, $sql2);
     <main id="bulletin" class="sm:p-6 lg:p-12">
     <?php include('../PHP Database/messages.php'); ?>
         <aside class="flex items-center flex-col lg:container lg:mx-auto">
-            <table class="table-auto bg-white w-[80rem] border-collapse border border-slate-500">
+            <table class="table-auto bg-white w-[80rem] border-collapse border border-slate-500 text-center">
                 <thead>
                     <tr>
                         <th>Order ID</th>

@@ -23,7 +23,7 @@ session_start();
                         <p class="sm:text-xs md:text-base">Enter details of product you wish to add</p>
                     </div>
                     <div id="">
-                        <input type="text" name="product_name" placeholder="Product Name" class="border border-black p-3 px-4 rounded-lg placeholder-shown:border-blue-600 w-full" autocomplete="off" />
+                        <input type="text" pattern="^\s\S+\s$" title="Must be no space character between words. Use _ or - symbol instead!" name="product_name" placeholder="Product Name" class="border border-black p-3 px-4 rounded-lg placeholder-shown:border-blue-600 w-full" autocomplete="off" />
                     </div>
                 </header>
                 <div class="grid sm:grid-cols-1 lg:grid-cols-3 w-[70rem]" id="parent">
@@ -32,8 +32,8 @@ session_start();
                             <label for="">EXTRA-SMALL</label>
                         </div>
                         <div class="">
-                            <input type="number" name="xs" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                            <input type="number" name="price_xs" placeholder="Extra Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
+                            <input type="number" min="1" name="xs" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                            <input type="number" min="1" name="price_xs" placeholder="Extra Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
                         </div>
                     </div>
                     <div>
@@ -41,8 +41,8 @@ session_start();
                             <label for="">SMALL</label>
                         </div>
                         <div class="">
-                            <input type="number" name="sm" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" />
-                            <input type="number" name="price_sm" placeholder="Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
+                            <input type="number" min="1" name="sm" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" />
+                            <input type="number" min="1" name="price_sm" placeholder="Small Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" />
                         </div>
                     </div>
                     <div>
@@ -50,8 +50,8 @@ session_start();
                             <label for="">MEDIUM</label>
                         </div>
                         <div class="">
-                            <input type="number" name="md" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4 w-full" autocomplete="off" required />
-                            <input type="number" name="price_md" placeholder="Medium Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" autocomplete="off" required />
+                            <input type="number" min="1" name="md" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4 w-full" autocomplete="off" required />
+                            <input type="number" min="1" name="price_md" placeholder="Medium Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" autocomplete="off" required />
                         </div>
                     </div>
                     <div>
@@ -59,8 +59,8 @@ session_start();
                             <label for="">LARGE</label>
                         </div>
                         <div class="">
-                            <input type="number" name="lg" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                            <input type="number" name="price_lg" placeholder="Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                            <input type="number" min="1" name="lg" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                            <input type="number" min="1" name="price_lg" placeholder="Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                         </div>
                     </div>
                     <div>
@@ -68,8 +68,8 @@ session_start();
                             <label for="">EXTRA-LARGE</label>
                         </div>
                         <div class="">
-                            <input type="number" name="xl" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
-                            <input type="number" name="price_xl" placeholder="Extra Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
+                            <input type="number" min="1"  name="xl" placeholder="No. of Stocks" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 mr-4" autocomplete="off" required />
+                            <input type="number" min="1" name="price_xl" placeholder="Extra Large Price" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600" autocomplete="off" required />
                         </div>
                     </div>
                     <div>
