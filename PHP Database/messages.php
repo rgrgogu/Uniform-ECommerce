@@ -12,7 +12,7 @@ if (isset($_SESSION['message'])) {
         <link href="../dist/main.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="bg-yellow-200 p-4 flex items-center justify-between rounded-lg" role="alert">
+        <div class="bg-yellow-200 p-4 flex items-center mb-4 justify-between rounded-lg" role="alert">
             <div id="header" class="inline-block">
                 <h2 class="font-bold text-2xl">Hey User</h2>
                 <span>

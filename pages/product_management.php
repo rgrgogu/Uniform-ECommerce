@@ -171,7 +171,6 @@ $_SESSION['arr'] = $arr1;
                                         <p class="mb-2">Stocks:</p>
                                         <p class="mb-2">
                                             <?php
-                                            echo mysqli_num_rows($name_queryRun);
                                             for ($i = 0; $i < 5; $i++) {
                                                 echo $arr1[$table][$i][0] . " - " . $arr1[$table][$i][1] . " = " . $arr1[$table][$i][2] . "<br>";
                                             }
