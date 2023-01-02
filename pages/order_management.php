@@ -11,7 +11,7 @@ include('../PHP Database/dbcon.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="../dist/main.css" rel="stylesheet" />
-    <title>Product Management | E-Shop</title>
+    <title>Order Management | E-Shop</title>
 </head>
 
 <body class="bg-gradient-to-t from-white to-[#2E849F]">
@@ -107,7 +107,7 @@ include('../PHP Database/dbcon.php');
 
     <main id="bulletin" class="sm:p-6 lg:p-12">
         <aside class="flex items-center flex-col lg:container lg:mx-auto">
-            <table class="table-auto">
+            <table class="table-auto bg-white w-[80rem] border-collapse border border-slate-500">
                 <thead>
                     <tr>
                         <th>Order ID</th>

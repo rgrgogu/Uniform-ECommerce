@@ -86,7 +86,7 @@ if (isset($_GET['product_id'])) {
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
             <link href="../dist/main.css" rel="stylesheet" />
-            <title>Forgot Password | E-Shop</title>
+            <title>Update Product | E-Shop</title>
         </head>
 
         <body>
