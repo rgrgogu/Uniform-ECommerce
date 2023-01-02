@@ -1,3 +1,20 @@
+<?php
+require('../../pages/PHP CLASSES/ClientInfo.php');
+require('../../PHP Database/dbcon.php');
+session_start();
+
+if (isset($_POST['btn_checkout'])) {
+
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
+    $mop = $_POST['payment'];
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -141,48 +158,33 @@
         <aside class="lg:container lg:mx-auto px-6">
             <header id="cart-header" class="sm:mb-2 lg:mb-4">
                 <h2 class="font-bold sm:text-2xl lg:text-4xl mb-2">Thank you for your purchase</h2>
-                <p>This contains all items to checkout.</p>
+    
             </header>
             <main class="grid sm:grid-cols-1 lg:grid-cols-2 lg:gap-12">
-                <aside id="left-panel">
-                    <div id="products" class="bg-white drop-shadow-xl flex sm:flex-col md:flex-row rounded-xl mb-6">
-                        <div id="product-image">
-                            <img src="../../src/assets/test1.jpeg" class="w-full sm:rounded-t-xl md:rounded-xl" />
-                        </div>
-                        <div id="product-details" class="p-6">
-                            <h2 class="font-bold text-2xl">Uniform</h2>
-                            <p>Quantity: 1</p>
-                            <span>Total: P500</span>
-                        </div>
-                    </div>
-                    <div class="bg-[#2E849F] text-white p-4 rounded-lg mb-4">
-                        <span>Total Quantity: 1</span>
-                        <span>Total Price: P500</span>
-                    </div>
-                </aside>
+
                 <aside id="right-panel">
                     <div id="delivery-info">
                         <h2 class="font-bold text-2xl mb-2">Delivery Information</h2>
                         <div class="flex flex-col items-start">
                             <label class="mb-2">Address</label>
-                            <span class="font-bold mb-2">save string</span>
+                            <span class="font-bold mb-2"><?php echo $address ?></span>
                         </div>
                         <div class="flex flex-col items-start">
                             <label class="mb-2">Contact Number</label>
-                            <span class="font-bold mb-2">save integer</span>
+                            <span class="font-bold mb-2"><?php echo $contact ?></span>
                         </div>
                     </div>
                     <div id="checkout" class="flex flex-col items-start mb-4">
                         <label class="font-bold text-2xl mb-2">Mode of Payment</label>
                         <div id="first" class="mb-4">
-                            <label>Save option...</label>
+                            <label><?php echo $mop ?></label>
                         </div>
                         <div id="submit-now" class="inline-flex">
                             <div class="border border-black mr-4">
                                 <img src="../../src/assets/qrcode-sample.jpeg" alt="qrcode" class="sm:w-36 lg:w-48">
                             </div>
                             <div class="sm:text-sm md:text-xl lg:text-2xl">
-                                <span>Present this QR code if mode of payment is pickup</span>
+                                <span>Save this QR code for receipt purposes!</span>
                             </div>
                         </div>
                     </div>

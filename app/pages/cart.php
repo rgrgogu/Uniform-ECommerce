@@ -1,3 +1,21 @@
+<?php
+require('../../pages/PHP CLASSES/ClientInfo.php');
+require('../../PHP Database/dbcon.php');
+session_start();
+
+$newClient = $_SESSION['object'];
+$client_id = $newClient->getClientID();
+$contact = $newClient->getContact();
+$sql = "SELECT * FROM cart_info";
+$query_run = mysqli_query($con, $sql);
+
+$sql1 = "SELECT SUM(item_price) FROM cart_info WHERE client_id = '$client_id'";
+$query_run1 = mysqli_query($con, $sql1);
+
+$totalPrice = mysqli_fetch_assoc($query_run1)['SUM(item_price)'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,59 +162,74 @@
                 <p>This contains all items to checkout.</p>
             </header>
             <main class="grid sm:grid-cols-1 lg:grid-cols-2 lg:gap-12">
+                
                 <aside id="left-panel">
-                    <div id="products" class="bg-white drop-shadow-xl flex sm:flex-col md:flex-row rounded-xl mb-6">
-                        <div id="product-image">
-                            <img src="../../src/assets/test1.jpeg" class="w-full sm:rounded-t-xl md:rounded-xl" />
-                        </div>
-                        <div id="product-details" class="p-6">
-                            <h2 class="font-bold text-2xl">Uniform</h2>
-                            <p>Quantity: 1</p>
-                            <span>Total: P500</span>
-                        </div>
-                    </div>
-                    <div class="bg-[#2E849F] text-white p-4 rounded-lg mb-4">
-                        <span>Total Quantity: 1</span>
-                        <span>Total Price: P500</span>
-                    </div>
+                    <?php
+                    if (mysqli_num_rows($query_run) > 0) {
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                    ?>
+                 
+                            <div id="products" class="bg-white drop-shadow-xl flex sm:flex-col md:flex-row rounded-xl mb-6">
+                                <div id="product-image">
+                                    <?php
+                                    echo "<img class='w-[15rem] object-cover sm:rounded-t-xl md:rounded-xl h-[15rem] ' src='../../src/assets/" . $row['item_img'] . "' >";
+                                    ?>
+                                </div>
+                                <div id="product-details" class="p-6">
+                                    <h2 class="font-bold text-2xl"><?php echo strtoupper($row['item_selected'] . " - " . $row['size']); ?></h2>
+                                    <p>Quantity: <?php echo $row['item_qty']; ?></p>
+                                    <span>Total: <?php echo $row['item_price']; ?></span>
+                                </div>
+                            </div>
+
+                    <?php
+                        }
+                    }
+                    ?>
                 </aside>
                 <aside id="right-panel">
+                <form action="checkout.php" method="POST">
+                    <div class="bg-[#2E849F] text-white p-4 rounded-lg mb-4">
+                        <span>Total Price: ₱ <?php echo $totalPrice ?>.00</span>
+                    </div>
                     <div id="delivery-info">
+                    
                         <h2 class="font-bold text-2xl mb-2">Delivery Information</h2>
                         <div class="flex flex-col items-start">
                             <label class="mb-2">Address</label>
-                            <input type="text" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" placeholder="Address" autocomplete="off" required />
+                            <input type="text" name="address" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" placeholder="Address" autocomplete="off" required />
                         </div>
                         <div class="flex flex-col items-start">
                             <label class="mb-2">Contact Number</label>
-                            <input type="tel" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" placeholder="Contact Number" autocomplete="off" onkeypress="return onlyNumberKey(event)" required />
+                            <input type="number" name="contact" class="border border-black p-3 px-4 rounded-lg mb-4 placeholder-shown:border-blue-600 w-full" value="<?php echo $contact ?>" placeholder="Contact Number" autocomplete="off" onkeypress="return onlyNumberKey(event)" required />
                         </div>
                     </div>
                     <div id="cart" class="flex flex-col items-start mb-4">
                         <label class="font-bold text-2xl mb-2">Mode of Payment</label>
                         <div id="first">
-                            <input type="checkbox">
+                            <input type="radio" name="payment" value="GCASH: Send your screenshot of payment thru email plmcoop@plm.edu.ph">
                             <label>GCASH: Send your screenshot of payment thru email plmcoop@plm.edu.ph</label>
                         </div>
                         <div id="first">
-                            <input type="checkbox">
+                            <input type="radio" name="payment" value="Cash on Delivery">
                             <label>Cash on Delivery</label>
                         </div>
                         <div id="first" class="mb-4">
-                            <input type="checkbox">
+                            <input type="radio" name="payment" value="Store Pick-up">
                             <label>Store Pick-up</label>
                         </div>
                         <div id="submit-now" class="self-end">
-                            <button type="submit" class="bg-[#2E849F] text-white p-4 rounded-lg px-12 hover:bg-[#236377]" onclick="checkout()">Checkout</button>
+                            <button type="submit" name="btn_checkout" class="bg-[#2E849F] text-white p-4 rounded-lg px-12 hover:bg-[#236377]" onclick="checkout()">Checkout</button>
                         </div>
                     </div>
+                    </form>
                 </aside>
             </main>
         </aside>
+       
     </section>
 
     <script src="../sidemenu.js"></script>
     <script src="../../src/events.js"></script>
 </body>
-
 </html>

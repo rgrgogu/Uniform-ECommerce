@@ -1,21 +1,99 @@
 <?php
-    require('../../PHP Database/dbcon.php');
-    session_start();
+require('../../PHP Database/dbcon.php');
+require('../../pages/PHP CLASSES/ClientInfo.php');
+session_start();
 
-if (isset($_GET['product_id'])) {
+$newClient = $_SESSION['object'];
 
-    $id = $_GET['product_id'];
+$id = $_GET['product_id'];
+$sql    = "SELECT * FROM uniform_db.product_list WHERE `product_id`='$id'";
+$result = $con->query($sql);
+$result1 = $con->query($sql);
 
-    $sql = "SELECT * FROM `product_list` WHERE `product_id`='$id'";
+$name = mysqli_fetch_assoc($result1)['product_name'];
 
-    $result = $con->query($sql);
-    if (mysqli_num_rows($result) > 0) {
+$sql1   = "SELECT stocks, price FROM $name";
+$result2 = $con->query($sql1);
 
-        while ($row = mysqli_fetch_assoc($result)) {
+$arr = mysqli_fetch_all($result2);
+// print_r($arr[0]); //first index size [0-4], second index stocks [0] price [1]
 
-            $name = $row['product_'];
-            $name = $row['detergent_name'];
-            $id = $row['id_detergent'];
+$xs_stocks = $arr[0][0];
+$xs_price = $arr[0][1];
+
+$sm_stocks = $arr[1][0];
+$sm_price = $arr[1][1];
+
+$md_stocks = $arr[2][0];
+$md_price = $arr[2][1];
+
+$lg_stocks = $arr[3][0];
+$lg_price = $arr[3][1];
+
+$xl_stocks = $arr[4][0];
+$xl_price = $arr[4][1];
+
+if (isset($_POST['item_add'])) {
+    $id = $_POST['prd_id'];
+    $qty = $_POST['qty'];
+    $size = $_POST['option'];
+
+    $sql = "SELECT product_name, product_img FROM product_list WHERE product_id = '$id'";
+    $result = mysqli_query($con, $sql);
+
+    $arr = mysqli_fetch_assoc($result);
+    $name = $arr["product_name"];
+
+    $img = $arr["product_img"];
+
+    $sql1 = "SELECT price FROM $name WHERE size_type = '$size'";
+    $result1 = mysqli_query($con, $sql1);
+
+    $price = mysqli_fetch_assoc($result1)["price"];
+
+    $price = $qty * $price;
+
+    $query = "SELECT CASE WHEN EXISTS(SELECT 1 FROM cart_info) THEN 0 ELSE 1 END AS IsEmpty;";
+    $query_run = mysqli_query($con, $query);
+    $ans = mysqli_fetch_assoc($query_run)['IsEmpty'];
+    $client_id = $newClient->getClientID();
+        
+    // EMPTY
+    if($ans){
+        $query1 = "INSERT INTO cart_info VALUES ('$id','$name','$size','$qty','$price','$img','$client_id')";
+        $query_run1 = mysqli_query($con, $query1);
+        $_SESSION['message'] = "Item has been added to your cart";
+        header('Location: ../index.php');
+
+    }
+    // MAY VALUE
+    else{
+        $query_check = "SELECT CASE WHEN EXISTS(SELECT item_qty, item_price FROM cart_info WHERE item_id ='$id' AND item_selected = '$name' AND	size = '$size') THEN 0 ELSE 1 END AS IsEmpty";
+        $query_check1 = mysqli_query($con, $query_check);
+        $check_ans = mysqli_fetch_assoc($query_check1)['IsEmpty'];
+
+        if($check_ans){
+            $query1 = "INSERT INTO cart_info VALUES ('$id','$name','$size','$qty','$price','$img', '$client_id')";
+            $query_run1 = mysqli_query($con, $query1);
+            $_SESSION['message'] = "Item has been added to your cart";
+            header('Location: ../index.php');
+        }
+        else{
+            $query1 = "SELECT item_qty, item_price FROM cart_info WHERE item_id ='$id' AND item_selected = '$name' AND	size = '$size' AND client_id = '$client_id'";
+            $query_run1 = mysqli_query($con, $query1);
+
+            $item_arr = mysqli_fetch_assoc($query_run1);
+            $item_qty = $item_arr["item_qty"];
+            $item_price = $item_arr["item_price"];
+
+            $totalQty = $item_qty + $qty;
+            $totalPrice = $item_price + $price;
+
+            $query2 = "UPDATE cart_info SET item_qty='$totalQty', item_price='$totalPrice' WHERE item_id ='$id' AND item_selected = '$name' AND	size = '$size'";
+            $query_run2 = mysqli_query($con, $query2);
+
+            $_SESSION['message'] = "Item has been added to your cart";
+            header('Location: ../index.php');
         }
     }
 }
@@ -53,7 +131,7 @@ if (isset($_GET['product_id'])) {
                     </div>
                 </div>
                 <div id="login" class="lg:mr-4 block">
-                    <a href="./profiles.php" class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
+                    <a href="../profiles.php" class="bg-blue-500 hover:bg-blue-600 rounded-full p-2 material-symbols-outlined text-white">
                         account_circle
                     </a>
                 </div>
@@ -167,44 +245,56 @@ if (isset($_GET['product_id'])) {
     <section class="lg:container lg:mx-auto lg:px-12 lg:p-12 sm:p-6">
         <main id="product-details">
             <aside class="grid sm:grid-cols-1 sm:gap-6 lg:grid-cols-2 lg:gap-12 lg:mb-12">
-                <div id="productCart-flexImage">
-                    <img src="../../src/assets/test1.jpeg" alt="test me" class="w-full rounded-xl" />
-                </div>
-                <div id="productCart-details" class="flex justify-start flex-col">
-                    <div id="productCart-otherImage" class="mb-4 sm:grid sm:grid-cols-2 sm:gap-6">
-                        <img src="../../src/assets/test1.jpeg" alt="test me" class="w-full  rounded-xl sm:mr-6 lg:mr-8" />
-                        <img src="../../src/assets/test1.jpeg" alt="test me" class="w-full  rounded-xl" />
-                    </div>
-                    <span class="font-bold text-2xl mb-4">Quantity</span>
-                    <div id="quantity-ops" class="mb-4">
-                        <button class="border border-black p-3 rounded-lg mr-4 hover:bg-blue-500 hover:border-none hover:text-white">
-                            -
-                        </button>
-                        <span class="mr-4">int</span>
-                        <button class="border border-black p-3 rounded-lg hover:bg-blue-500 hover:border-none hover:text-white">
-                            +
-                        </button>
-                    </div>
-                    <div id="importance">
-                        <h2 class="font-bold mb-4 text-2xl">Sizes</h2>
-                        <select id="cars" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
-                            <option value="" selected>-required-</option>
-                            <option value="Extra-Small">XS</option>
-                            <option value="Small">S</o ption>
-                            <option value="Medium">M</option>
-                            <option value="Large">L</option>
-                            <option value="Extra-Large">XL</option>
-                        </select>
-                        <div class="mb-2">
-                            <b class="mr-2">Available Stocks(Small):</b>25
-                        </div>
-                    </div>
-                    <div id="product-price">
-                        <h2 class="font-bold text-3xl mb-4">P500</h2>
-                        <button class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600" onclick="addCart()">Add to Cart</button>
-                    </div>
-                </div>
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                        
+                            <div id="productCart-flexImage">
+                                <?php
+                                echo "<img class='w-full rounded-xl object-cover h-[44rem]' src='../../src/assets/" . $row['product_img'] . "' >";
+                                ?>
+                            </div>
+                            <div id="productCart-details" class="flex justify-start flex-col">
+                                <div id="productCart-otherImage" class="mb-4 sm:grid sm:grid-cols-2 sm:gap-6">
+                                    <?php
+                                    echo "<img class='w-full  rounded-xl sm:mr-6 lg:mr-8' src='../../src/assets/" . $row['product_img'] . "' >";
+                                    echo "<img class='w-full  rounded-xl sm:mr-6 lg:mr-8' src='../../src/assets/" . $row['product_img'] . "' >";
+
+                                    ?>
+
+                                </div>
+                                <form  method="POST">
+                                    <span class="font-bold text-2xl mb-4">Quantity</span>
+                                    <div id="quantity-ops" class="mb-4">
+                                        <input type="number" name="qty" placeholder="Enter Quantity" class="border border-black p-3 px-4 rounded-lg mb-4 w-full mt-2" />
+                                    </div>
+                                    <div id="importance">
+                                        <h2 class="font-bold mb-4 text-2xl">Sizes/Stocks</h2>
+
+                                        <input type="hidden" name="prd_id" value="<?php echo $id; ?>"/> 
+                                        <select id="cars" name="option" class="border border-black p-3 rounded-lg w-full mb-4 bg-none appearance-none" required>
+
+                                            <option value="" selected>-required-</option>
+                                            <option value="XS"><?php echo "Extra-Small" . " - " . $xs_stocks . " pcs. = " . "₱" . $xs_price; ?>.00</option>
+                                            <option value="S"><?php echo "Small" . " - " . $sm_stocks . " pcs. = " . "₱" . $sm_price; ?>.00</option>
+                                            <option value="M"><?php echo "Medium" . " - " . $md_stocks . " pcs. = " . "₱" . $md_price; ?>.00</option>
+                                            <option value="L"><?php echo "Large" . " - " . $lg_stocks . " pcs. = " . "₱" . $lg_price; ?>.00</option>
+                                            <option value="XL"><?php echo "Extra-Large" . " - " . $xl_stocks . " pcs. = " . "₱" . $xl_price; ?>.00</option>
+                                        </select>
+                                    </div>
+                                    <div id="product-price">
+                                        <h2 class="font-bold text-3xl mb-4"></h2>
+                                        <button  type="submit" name="item_add" class="bg-blue-500 text-white w-full p-4 rounded-lg font-bold mb-4 hover:bg-blue-600" >Add to Cart</button>
+                                    </div>
+                                </form>
+                            </div>
+                 
             </aside>
+            <?php
+                    }
+                }
+                    ?>
             <aside id="page-recommendation">
                 <div id="product-header" class="sm:text-2xl lg:text-4xl font-bold sm:mb-4 lg:mb-8">
                     <h2>You may also like</h2>
@@ -222,12 +312,13 @@ if (isset($_GET['product_id'])) {
                                 <p class="sm:mb-1 sm:mt-1 md:mb-2 md:mt-2 sm:text-sm">paragraph is paragraph</p>
                             </div>
                             <div id="cart">
-                                <button class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600" onclick="addCart()">Add to Cart</button>
+                                <button name="item_add_btn" class="bg-blue-500 p-4 px-12 rounded-xl text-white sm:p-2 md:p-3 hover:bg-blue-600" onclick="addCart()">Add to Cart</button>
                             </div>
                         </div>
                     </div>
                     <!-- stored as array -->
                 </div>
+
             </aside>
         </main>
     </section>
